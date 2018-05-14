@@ -1,0 +1,1097 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html,body {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/*首页-------------------------*/
+.contain {
+    background: transparent;
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 1;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+
+    /*display: none;*/
+}
+
+.bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url("../img/bg.png");
+    z-index: -1;
+    transform-origin: 50% 55.2%;
+    -webkit-transform-origin: 50% 55.2%;
+    transform: scale(3);
+    -webkit-transform: scale(3);
+    /*-webkit-animation: bg-rotate 8s linear infinite;*/
+    /*animation: bg-rotate 8s linear infinite;*/
+}
+
+.screenA {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 11;
+}
+
+.headerA {
+    height: 76px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logoA {
+    height: 76px;
+    width: 285px;
+    background: url("../img/logo.png");
+}
+
+.activity {
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    width: 160px;
+    border-radius: 21px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 26px;
+    color: #e60012;
+    background-color: #fff7d0;
+}
+
+.musicA {
+    display: flex;
+    align-items: center;
+}
+
+.music {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    border-radius: 22px;
+    margin: 0 20px 0 10px;
+    cursor: pointer;
+
+    background-color: #fdc300;
+}
+
+.musicIcon {
+    display: block;
+    height: 44px;
+    background: url("../img/musicIcon.png") no-repeat center;
+}
+
+
+.contentA {
+    width: 100%;
+    height: 932px;
+    background: url("../img/bgelips.png") no-repeat center;
+}
+
+.ctaTop {
+    position: relative;
+    height: 307px;
+    z-index: 6;
+}
+
+.wenan {
+    height: 307px;
+    width: 400px;
+    line-height: 0;
+    margin-left: 55px;
+    padding-top: 80px;
+    position: absolute;
+}
+
+.wenanTwo {
+    position: absolute;
+    height: 100px;
+    margin-top: 272px;
+    margin-left: 212px;
+}
+
+.wenanTwo img {
+    position: absolute;
+}
+
+.wenanTwo .guan {
+    margin-left: 57px;
+    margin-top: -9px;
+}
+
+.wenanTwo .ying {
+    margin-left: 103px;
+}
+
+.wenanTwo .dajiang{
+    margin-left: 144px;
+    margin-top: 9px;
+}
+
+.ctaPanda {
+    position: relative;
+    height: 336px;
+    background: url("../img/panda6.png") no-repeat 56%;
+    z-index: 5;
+}
+
+.ctaPanda img {
+    position: absolute;
+}
+
+.ctaPanda .panda1 {
+    margin-left: 423px;
+    margin-top: -79px;
+}
+
+.ctaPanda .panda2 {
+    margin-left: 77px;
+    margin-top: 96px;
+}
+
+.ctaPanda .panda3 {
+    margin-left: 423px;
+    margin-top: 155px;
+}
+
+.ctaPanda .panda4 {
+    margin-left: 153px;
+    margin-top: 238px;
+}
+
+.ctaPanda .panda5 {
+    margin-left: 313px;
+    margin-top: 275px;
+}
+
+
+
+.ctaPanda .spanda2 {
+    margin-left: 483px;
+    margin-top: -114px;
+}
+
+.ctaPanda .spanda3 {
+    margin-left: 421px;
+    margin-top: -104px;
+}
+
+.wenanTwo .spanda4 {
+    margin-left: -58px;
+    margin-top: -51px;
+}
+
+.ctaPanda .spanda5 {
+    margin-left: 465px;
+    margin-top: 76px;
+}
+
+.ctaPanda .spanda6 {
+    margin-left: 169px;
+    margin-top: 137px;
+}
+
+.meijiBox {
+    position: relative;
+    height: 197px;
+    margin-top: 10px;
+    background: url("../img/meiji.png") no-repeat center;
+    z-index: 6;
+}
+
+.meijiBox .spanda1 {
+    margin-left: 209px;
+    margin-top: -23px;
+}
+
+.footerA {
+    text-align: center;
+}
+
+.footerA .play {
+    margin-top: 20px;
+    display: inline-block;
+    width: 297px;
+    height: 62px;
+    line-height: 62px;
+    color: #e60012;
+    font-size: 48px;
+    border-radius: 31px;
+    background-color: #fff1ae;
+}
+
+/*活动说明------------------------------------*/
+#activityMask {
+    /*background: transparent;*/
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 19;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    background: url("../img/activityDesc/bg.png");
+
+    display: none;
+    /*background-color:#000;*/
+    /*color: rgba(255, 255, 255, 0.95);*/
+}
+
+.headerAM {
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    border-bottom: 3px solid #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.headerAM .closeAM {
+    right: 30px;
+    font-size: 48px;
+    color: #fff;
+    position: absolute;
+    display: block;
+}
+
+.headerAM span{
+    color: #fff;
+    font-size: 30px;
+}
+
+.activeAM::after {
+    width: 100%;
+    content: "";
+    margin-top: -12px;
+    height: 12px;
+    display: block;
+    background: url("../img/activityDesc/triangle.png") no-repeat center;
+}
+
+.contentAM {
+    height: 928px;
+    display: flex;
+}
+
+.descAM {
+    flex: 1;
+    display: flex;
+    margin: 60px 40px;
+    background-color: #fde7ca;
+    border-radius: 8px;
+    display: none;
+}
+
+.boardAM {
+    flex: 1;
+    margin: 60px 40px 300px 40px;
+    height: 580px;
+    background-color: #fde7ca;
+    border-radius: 8px;
+    display: none;
+}
+
+.contentAM .descActive {
+    display: flex;
+
+}
+
+.boardContentAM {
+    flex: 1;
+    margin: 8px;
+    padding: 5px;
+    height: 540px;
+    overflow: auto;
+    border: 5px solid #fdc300;
+    border-radius: 16px;
+}
+
+.descContentAM {
+    flex: 1;
+    margin: 8px;
+    padding: 35px;
+    overflow: auto;
+    border: 5px solid #fdc300;
+    border-radius: 8px;
+    font-size: 26px;
+    line-height: 46px;
+}
+
+.boardList {
+    height: 90px;
+    display: flex;
+}
+
+.boardList .one {
+    flex-basis: 20%;
+    height: 90px;
+    background: url("../img/activityDesc/leaderFour.png") no-repeat center;
+}
+
+.boardList .two {
+    flex-basis: 20%;
+    height: 90px;
+    background: url("../img/activityDesc/leaderFour.png") no-repeat center;
+}
+
+.boardList .three {
+    flex-basis: 40%;
+    text-align: center;
+    height: 90px;
+    line-height: 90px;
+}
+
+.boardList .four {
+    text-align: center;
+    flex-basis: 20%;
+    height: 90px;
+    line-height: 90px;
+}
+
+.descContentBox{
+    display: flex;
+}
+
+.descContentBox div:last-child {
+    flex: 1;
+}
+
+.descContentAM span {
+    color: #e60012;
+}
+
+.footerAM {
+    position: absolute;
+    width: 100%;
+    margin-top: 540px;
+    margin-left: -40px;
+}
+
+.meijiAM {
+    height: 167px;
+    width: 100%;
+    background: url("../img/activityDesc/meiji.png") no-repeat center;
+}
+
+.sharewenanAM {
+    text-align: center;
+    position: absolute;
+    height: 48px;
+    width: 100%;
+    margin-top: -30px;
+    line-height: 48px;
+    font-size: 32px;
+    color: #fff;
+}
+
+.shareAM {
+    margin: 0 auto;
+    height: 62px;
+    width: 297px;
+    border-radius: 31px;
+    margin-top: 40px;
+    line-height: 62px;
+    color: #e60012;
+    text-align: center;
+    font-size: 48px;
+    background: #fff3ba;
+}
+
+.bgAM {
+    position: absolute;
+    height: 1008px;
+    width: 640px;
+    background: #000000;
+    z-index: -1;
+    opacity: .6;
+    transform: scale(5);
+    -webkit-transform: scale(5);
+}
+
+/* game ------------------------------------------------- game */
+
+.game {
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 10;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    background: url("../img/game/bg.png");
+
+    display: none;
+}
+
+.screenGM {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 11;
+}
+
+.bgGM {
+    position: absolute;
+    height: 1008px;
+    width: 640px;
+    background: url("../img/game/bgmask.png") no-repeat;
+    z-index: -1;
+}
+
+.headerGM {
+    padding: 15px;
+    height: 76px;
+    width: 100%;
+}
+
+.contentGM {
+    height: 902px;
+    width: 100%;
+    position: relative;
+}
+
+.timerGM {
+    height: 52px;
+    padding: 20px 40px;
+    display: flex;
+}
+
+.numGM {
+    flex-basis: 16%;
+    line-height: 52px;
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+}
+
+.processGM {
+    flex-basis: 84%;
+    border-radius: 26px;
+    background-color: #e49151;
+    overflow: hidden;
+    position: relative;
+}
+
+.percentGM {
+    height: 52px;
+    /*border-radius: 26px;*/
+    background-color: #fdc300;
+    width: 100%;
+}
+
+.processGM img {
+    position: absolute;
+}
+
+.pIconOne {
+    margin-left: 14px;
+    margin-top: 5px;
+}
+
+.pIconTwo {
+    right: 13px;
+    top: 6px;
+}
+
+.gamerGM {
+    height: 810px;
+    position: relative;
+    display: flex;
+}
+
+.gameBoxGM {
+    flex: 1;
+    margin: 20px 40px;
+    background-color: #b5c54c ;
+    border-radius: 6px;
+}
+
+.innerBoxGM {
+    margin: 9px;
+    padding: 8px;
+    border-radius: 2px;
+    height: 732px;
+    display: flex;
+    border: 3px solid #f9e574;
+    background-color: #eb9c74;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flipContainerGM {
+    -webkit-perspective: 500;
+    perspective: 500;
+    -webkit-transform: perspective(500px);
+    transform: perspective(500px);
+    /*-webkit-transform-style: preserve-3d;*/
+    /*transform-style: preserve-3d;*/
+    /*margin: 2px;*/
+    flex-basis: 24.6%;
+    position: relative;
+}
+/*由于内层绝对定位导致高度缺少，这里显式设置了宽高*/
+.flipContainerGM, .frontGM, .backGM {
+    border-radius: 16px;
+    background: #e46c51;
+    width: 100%;
+    height: 120px;
+}
+
+.flipContainerGM.unnorGM {
+    background: #f9b87e;
+}
+
+.flipContainerGM.unnorGM {
+    background: #f9b87e;
+}
+
+.flipContainerGM.activeGM .frontGM {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.flipContainerGM.activeGM .backGM {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
+}
+
+.flipContainerGM:hover .frontGM {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.flipContainerGM:hover .backGM {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
+}
+
+.frontGM, .backGM {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 28px;
+    color: #b25410;
+    font-weight: 600;
+    text-align: center;
+    line-height: 4;
+    background: url("../img/game/bingan.png") no-repeat center;
+}
+.frontGM {
+    z-index: 2;
+}
+.backGM {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.backGM img {
+    vertical-align: middle;
+    line-height: 0;
+}
+
+
+/*成功modal-------------------------------*/
+#gameSuccMask {
+    /*background: transparent;*/
+    /*background-size: auto 100% ! important;*/
+    /*background-position: center;*/
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 11;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    background: url("../img/game/succbg.png") no-repeat;
+
+    display: none;
+    /*background-color:#000;*/
+    /*color: rgba(255, 255, 255, 0.95);*/
+}
+
+.contentGSM {
+    margin-top: 248px;
+    height: 760px;
+}
+
+.succModalGSM {
+    height: 460px;
+    width: 462px;
+    margin: 0 89px;
+    border-radius: 30px;
+    border: 5px solid #fdc300;
+    background-color: #fde7ca;
+    position: relative;
+    color: #e60012;
+}
+
+.smhGSM {
+    background: url("../img/game/succStar.png") no-repeat;
+    height: 163px;
+    width: 472px;
+    position: absolute;
+    margin-top: -134px;
+    margin-left: -5px;
+}
+
+.smhtGSM {
+    font-size: 60px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.smhcGSM{
+    font-size: 28px;
+    text-align: center;
+    line-height: 48px;
+}
+
+.smpGSM {
+    background: url("../img/game/succp.png") no-repeat;
+    width: 160px;
+    height: 215px;
+    position: absolute;
+    right: -15px;
+}
+
+.succFooterGSM {
+    height: 260px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.buttonGSM {
+    margin: 0 auto;
+    height: 61px;
+    width: 234px;
+    border-radius: 31px;
+    margin-top: 40px;
+    line-height: 62px;
+    color: #e60012;
+    text-align: center;
+    font-size: 38px;
+    background: url("../img/game/gamebutton.png");
+    /*background: #fff3ba;*/
+}
+
+/*失败modal-------------------------------*/
+#gameFailMask {
+    /*background: transparent;*/
+    /*background-size: auto 100% ! important;*/
+    /*background-position: center;*/
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 11;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+
+    display: none;
+    /*background-color:#000;*/
+    /*color: rgba(255, 255, 255, 0.95);*/
+}
+
+.failModalGSM {
+    height: 460px;
+    width: 462px;
+    margin: 0 89px;
+    border-radius: 30px;
+    border: 5px solid #fdc300;
+    background-color: #fde7ca;
+    position: relative;
+    color: #646464;
+}
+
+.fmhGSM {
+    background: url("../img/game/failStar.png") no-repeat;
+    height: 163px;
+    width: 472px;
+    position: absolute;
+    margin-top: -134px;
+    margin-left: -5px;
+}
+
+.fmpGSM {
+    background: url("../img/game/failp.png") no-repeat;
+    width: 202px;
+    height: 204px;
+    position: absolute;
+    left: 135px;
+}
+
+/*转盘---------------------------------*/
+.lottery {
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 11;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    display: none;
+
+}
+
+.lotteryBg {
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 10;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    background: url("../img/lottery/bg.png");
+
+    display: none;
+}
+
+.headerLt {
+    height: 175px;
+    margin-top: 150px;
+    background: url("../img/lottery/header.png") no-repeat center;
+}
+
+.headerLt div {
+    height: 144px;
+    background: url("../img/lottery/headerIcon.png") no-repeat center;
+}
+
+.contentLt {
+    height: 529px;
+    background: url("../img/lottery/ttbg.png") no-repeat center;
+}
+
+.footerLt {
+    height: 260px;
+    position: relative;
+}
+
+.button {
+    margin: 0 auto;
+    height: 61px;
+    border-radius: 31px;
+    margin-top: 40px;
+    line-height: 62px;
+    color: #e60012;
+    text-align: center;
+    font-size: 38px;
+    /*background: #fff3ba;*/
+}
+
+.buttonLt {
+    width: 297px;
+    background: url("../img/lottery/buttonlot.png") no-repeat center;
+}
+
+.pandaLt {
+    width: 188px;
+    height: 200px;
+    background: url("../img/lottery/tp.png");
+    position: absolute;
+    right: 20px;
+    top: -210px;
+}
+
+/*中奖途牛旅游-------------------------*/
+.zj {
+    background-size: auto 100% ! important;
+    background-position: center;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 640px;
+    height: 1008px;
+    margin-left: -320px;
+    margin-top: -504px;
+    z-index: 11;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    overflow: visible;
+    position: absolute;
+
+    display: none;
+}
+
+.content_zjtn {
+    margin-top: 60px;
+    height: 712px;
+    background: url("../img/lottery/zj_tn.png") no-repeat center;
+}
+
+.button_zjtn {
+    width: 372px;
+    background: url("../img/lottery/buttonzj.png") no-repeat center;
+}
+
+
+/*中奖京东-------------------------*/
+.content_zjjd {
+    margin-top: 60px;
+    height: 712px;
+    background: url("../img/lottery/zj_jd.png") no-repeat center;
+}
+
+/*中奖门票-------------------------*/
+
+.content_zjmp {
+    margin-top: 50px;
+    height: 800px;
+    background: url("../img/lottery/zj_mp.png") no-repeat center;
+    position: relative;
+}
+
+.info_zjmp {
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    color: #e60012;
+    font-size: 30px;
+}
+
+.item_zjmp {
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.item_zjmp input, .item_zjmp select {
+    height: 30px;
+    font-size: 24px;
+    padding: 0 8px;
+    outline: none;
+    width: 200px;
+    border: 1px solid #ebaf9e;
+    border-radius: 15px;
+    appearance:none;
+    -webkit-appearance:none;
+    background-color:transparent
+}
+
+.info_zjmp .item_zjmp select {
+    width: 216px;
+    font-size: 14px;
+}
+
+.arrow {
+    position: absolute;
+    height: 13px;
+    width: 28px;
+    background: url("../img/lottery/arrow.png");
+    right: 15px;
+}
+
+
+#loadingMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#000;
+    color: rgba(255, 255, 255, 0.95);
+    z-index:100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    position: absolute;
+    top: calc(50% - 64px);
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+}
+
+.linner {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.linner.one {
+    left: 0%;
+    top: 0%;
+    -webkit-animation: rotate-one 1s linear infinite;
+    animation: rotate-one 1s linear infinite;
+    border-bottom: 3px solid #EFEFFA;
+}
+
+.linner.two {
+    right: 0%;
+    top: 0%;
+    -webkit-animation: rotate-two 1s linear infinite;
+    animation: rotate-two 1s linear infinite;
+    border-right: 3px solid #EFEFFA;
+}
+
+.linner.three {
+    right: 0%;
+    bottom: 0%;
+    -webkit-animation: rotate-three 1s linear infinite;
+    animation: rotate-three 1s linear infinite;
+    border-top: 3px solid #EFEFFA;
+}
+@-webkit-keyframes bg-rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(3);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(3);
+    }
+}
+@-webkit-keyframes rotate-one {
+    0% {
+        -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+@keyframes rotate-one {
+    0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+}
+@-webkit-keyframes rotate-two {
+    0% {
+        -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+@keyframes rotate-two {
+    0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+}
+@-webkit-keyframes rotate-three {
+    0% {
+        -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+        -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}
+@keyframes rotate-three {
+    0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}
+.spanloader {
+    display: block;
+    -webkit-transform: translate3d(0,32px,0);
+    transform: translate3d(0,32px,0);
+    text-align: center;
+}

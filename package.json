@@ -1,0 +1,36 @@
+{
+  "name": "shenzhou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --files=\"**/*,*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranrantu/shenzhou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranrantu/shenzhou/issues"
+  },
+  "homepage": "https://github.com/ranrantu/shenzhou#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.11",
+    "del": "^2.2.2",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-if": "^2.0.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-uglify": "^2.1.2",
+    "gulp-useref": "^3.1.2",
+    "shipit-cli": "^3.0.0"
+  },
+  "dependencies": {
+    "formidable": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-usemin": "^0.3.28",
+    "rethinkdb": "2.2.2"
+  }
+}

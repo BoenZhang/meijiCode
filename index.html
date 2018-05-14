@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dcholdings</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- build:css ./src/css/main.css -->
+    <link rel="stylesheet" href="./src/css/main.css">
+    <!-- endbuild -->
+</head>
+<body style="-webkit-tap-highlight-color:rgba(0,0,0,0)">
+<div id="container" class="contain">
+    <div class="screenA">
+        <div class="headerA">
+            <div class="logoA"></div>
+            <div class="musicA">
+                <span class="activity">活动说明</span>
+                <span class="music">
+                        <span class="musicIcon"></span>
+                    </span>
+            </div>
+        </div>
+        <div class="contentA">
+            <div class="ctaTop">
+                <div class="wenan">
+                    <img src="./src/img/wenan.png" alt="">
+                </div>
+                <div class="wenanTwo">
+                    <img src="./src/img/tong.png" alt="" class="tong">
+                    <img src="./src/img/guan.png" alt="" class="guan">
+                    <img src="./src/img/ying.png" alt="" class="ying">
+                    <img src="./src/img/dajiang.png" alt="" class="dajiang">
+                    <img src="./src/img/spanda4.png" alt="" class="spanda4">
+                </div>
+            </div>
+            <div class="ctaPanda">
+                <img src="./src/img/panda1.png" alt="" class="panda1">
+                <img src="./src/img/panda2.png" alt="" class="panda2">
+                <img src="./src/img/panda3.png" alt="" class="panda3">
+                <img src="./src/img/panda4.png" alt="" class="panda4">
+                <img src="./src/img/panda5.png" alt="" class="panda5">
+                <img src="./src/img/spanda2.png" alt="" class="spanda2">
+                <img src="./src/img/spanda3.png" alt="" class="spanda3">
+                <img src="./src/img/spanda5.png" alt="" class="spanda5">
+                <img src="./src/img/spanda6.png" alt="" class="spanda6">
+            </div>
+            <div class="meijiBox">
+                <img src="./src/img/spanda1.png" alt="" class="spanda1">
+            </div>
+            <div class="footerA">
+                <span class="play">碰一下</span>
+            </div>
+        </div>
+    </div>
+    <div class="bg"></div>
+</div>
+
+<div id="activityMask">
+    <div class="headerAM">
+        <span class="activeAM" data-type="1">活动说明</span>
+        <span class="unactiveAM" data-type="2">排行榜</span>
+        <span class="closeAM">X</span>
+    </div>
+    <div class="contentAM">
+        <div class="descAM descActive">
+            <div class="descContentAM">
+                <p><span>活动奖品</span>
+                    <div class="descContentBox"><div>一等奖：</div><div>游乐园电子门票</div></div>
+                    <div class="descContentBox"><div>二等奖：</div><div>途牛旅游网1000元（机票+酒店+旅游）组合电子优惠券</div></div>
+                    <div class="descContentBox"><div>三等奖：</div><div>明治饼干10元京东商城电子优惠券（满50可用）</div></div>
+                    <span>活动时间</span><br> 2018年5月17日-2018年8月31日
+                </p>
+                <br>
+                <p><span>活动说明</span><br>翻开任意两对相同的图片即可完成消除，反之则会自动翻转到原位；在30秒内消除所有图片，即可获得抽奖机会。<br>活动期间玩家挑战成功就可获得一次抽奖机会，100%中奖。</p>
+            </div>
+        </div>
+
+        <div class="boardAM">
+            <div class="boardContentAM">
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+                <div class="boardList">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three">张三</div>
+                    <div class="four">888</div>
+                </div>
+            </div>
+            <div class="footerAM">
+                <div class="meijiAM"></div>
+                <div class="sharewenanAM">邀请更多好友一起来玩</div>
+                <div class="shareAM">分享好友</div>
+            </div>
+        </div>
+    </div>
+    <div class="bgAM"></div>
+</div>
+
+<div id="game" class="game">
+    <div class="screenGM">
+        <div class="headerGM">
+            <div class="logoA"></div>
+        </div>
+        <div class="contentGM">
+            <div class="timerGM">
+                <div class="numGM">30S</div>
+                <div class="processGM">
+                    <img src="./src/img/game/progress1.png" alt="" class="pIconOne">
+                    <img src="./src/img/game/progress2.png" alt="" class="pIconTwo">
+                    <div class="percentGM"></div>
+                </div>
+            </div>
+            <div class="gamerGM">
+                <div class="gameBoxGM">
+                    <div class="innerBoxGM">
+                        <div class="flipContainerGM" data-panda="p1">
+                            <div class="frontGM" data-panda="p1">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p6">
+                            <div class="frontGM" data-panda="p6">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p6.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p6">
+                            <div class="frontGM" data-panda="p6">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p6.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p7">
+                            <div class="frontGM" data-panda="p7">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p7.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p5">
+                            <div class="frontGM" data-panda="p5">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p6.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p1">
+                            <div class="frontGM" data-panda="p1">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p2">
+                            <div class="frontGM" data-panda="p2">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p12">
+                            <div class="frontGM" data-panda="p12">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p12.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p5">
+                            <div class="frontGM" data-panda="p5">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p5.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p8">
+                            <div class="frontGM" data-panda="p8">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p8.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p7">
+                            <div class="frontGM" data-panda="p7">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p7.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p4">
+                            <div class="frontGM" data-panda="p4">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p4.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p2">
+                            <div class="frontGM" data-panda="p2">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p10">
+                            <div class="frontGM" data-panda="p10">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p10.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p12">
+                            <div class="frontGM" data-panda="p12">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p12.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p9">
+                            <div class="frontGM" data-panda="p9">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p9.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p3">
+                            <div class="frontGM" data-panda="p3">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p11">
+                            <div class="frontGM" data-panda="p11">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p11.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p8">
+                            <div class="frontGM" data-panda="p8">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p8.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p9">
+                            <div class="frontGM" data-panda="p9">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p9.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p3">
+                            <div class="frontGM" data-panda="p3">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p10">
+                            <div class="frontGM" data-panda="p10">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p10.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM unnorGM" data-panda="p11">
+                            <div class="frontGM" data-panda="p11">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p11.png" alt="">
+                            </div>
+                        </div>
+                        <div class="flipContainerGM" data-panda="p4">
+                            <div class="frontGM" data-panda="p4">meiji</div>
+                            <div class="backGM">
+                                <img src="./src/img/game/p4.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bgGM"></div>
+</div>
+
+<div id="gameSuccMask">
+    <div class="contentGSM">
+        <div class="succModalGSM">
+            <div class="smhGSM"></div>
+            <div class="smhtGSM">挑战成功</div>
+            <div class="smhcGSM">
+                <div>你的成绩为：XXX秒</div>
+                <div>成功击败全国xxx%的玩家</div>
+                <div>第一名成绩为：12秒</div>
+            </div>
+            <div class="smpGSM"></div>
+        </div>
+        <div class="succFooterGSM">
+            <div class="buttonGSM">我要抽奖</div>
+            <div class="buttonGSM">排行榜</div>
+        </div>
+    </div>
+    <div class="bgAM"></div>
+</div>
+
+<div id="gameFailMask">
+    <div class="contentGSM">
+        <div class="failModalGSM">
+            <div class="fmhGSM"></div>
+            <div class="smhtGSM">挑战失败</div>
+            <div class="smhcGSM">
+                <div>xxx%的玩家已完成挑战</div>
+                <div>第一名成绩为：12秒</div>
+            </div>
+            <div class="fmpGSM"></div>
+        </div>
+        <div class="succFooterGSM">
+            <div class="buttonGSM onemoreGSM">再来一次</div>
+            <div class="buttonGSM rangeGSM">排行榜</div>
+        </div>
+    </div>
+    <div class="bgAM"></div>
+</div>
+
+<div id="lottery" class="lottery">
+    <div class="headerLt">
+        <div></div>
+    </div>
+    <div class="contentLt"></div>
+    <div class="footerLt">
+        <div class="button buttonLt">试试手气</div>
+        <div class="pandaLt"></div>
+    </div>
+</div>
+
+<div id="zjtn" class="zj zjtn">
+    <div class="content_zjtn"></div>
+    <div class="footerLt">
+        <div class="button button_zjtn">前往领取福利</div>
+        <div class="button button_zjtn">炫耀一下</div>
+    </div>
+</div>
+
+<div id="zjjd" class="zj zjjd">
+    <div class="content_zjjd"></div>
+    <div class="footerLt">
+        <div class="button button_zjtn">前往领取福利</div>
+        <div class="button button_zjtn">炫耀一下</div>
+    </div>
+</div>
+
+<div id="zjmp" class="zj zjmp">
+    <div class="content_zjmp">
+        <div class="info_zjmp">
+            <div class="item_zjmp">
+                <span>乐园：</span>
+                <select>
+                    <option value ="bj">北京欢乐谷成人单人门票壹张</option>
+                    <option value ="sh">上海欢乐谷成人单人门票壹张</option>
+                    <option value="sz">深圳欢乐谷成人单人门票壹张</option>
+                    <option value="gz">广州长隆野生动物世界成人单人门票壹张</option>
+                    <option value ="nj">南京银杏湖乐园成人单人门票壹张</option>
+                    <option value ="hz">杭州烂苹果乐园成人单人门票壹张</option>
+                </select>
+                <div class="arrow"></div>
+            </div>
+            <div class="item_zjmp">
+                <span>姓名：</span>
+                <input type="text" name="name">
+            </div>
+            <div class="item_zjmp">
+                <span>电话：</span>
+                <input type="text" name="tel">
+            </div>
+        </div>
+    </div>
+    <div class="footerLt">
+        <div class="button button_zjtn">确   定</div>
+        <div class="button button_zjtn">炫耀一下</div>
+    </div>
+</div>
+
+<div id="lotteryBg" class="lotteryBg"></div>
+
+<div id="loadingMask">
+    <div class="loader">
+        <div class="linner one"></div>
+        <div class="linner two"></div>
+        <div class="linner three"></div>
+    </div>
+    <div class="spanloader">已加载<span id="isload">0</span>%</div>
+</div>
+
+<script src="./src/js/jquery.min.js"></script>
+<script src="./src/js/fastclick.min.js"></script>
+<!--<script src="./src/js/Tween.min.js"></script>-->
+<!-- build:js ./src/js/index.js -->
+<script src="./src/js/commonFunction.js"></script>
+<script src="./src/js/index.js"></script>
+<!-- endbuild -->
+</body>
+</html>

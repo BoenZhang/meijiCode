@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .flip-container {
+            -webkit-perspective: 500;
+            -moz-perspective: 500;
+            -ms-perspective: 500;
+            perspective: 500;
+            -ms-transform: perspective(500px);
+            -moz-transform: perspective(500px);
+            transform-style: preserve-3d;
+            margin: 30px;
+            display: inline-block;
+            border: 1px solid #aaa;
+            position: relative;
+        }
+        /*由于内层绝对定位导致高度缺少，这里显式设置了宽高*/
+        .flip-container, .front, .back {
+            width: 200px;
+            height: 200px;
+        }
+
+        .flip-container:hover .front {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform: rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+        .flip-container:hover .back {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+            z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
+        }
+
+        .front, .back {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 0.6s;
+            -moz-transition: 0.6s;
+            -o-transition: 0.6s;
+            -ms-transition: 0.6s;
+            transition: 0.6s;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .front {
+            background: red;
+            z-index: 2;
+        }
+        .back {
+            background: green;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform: rotateY(-180deg);
+            -ms-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="flip-container">
+        <div class="front">here is content : AA</div>
+        <div class="back">here is content : BB</div>
+    </div>
+</body>
+</html>
