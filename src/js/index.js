@@ -1,5 +1,9 @@
 var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1;
 
+var jpType = Math.ceil(Math.random() *3), jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: ''};
+
+// jpType = 1 ;
+
 function startGame() {
     startTime = tmpTime = Date.now();
     var $numGM = $('.numGM'), $percentGM = $('.percentGM'), count;
@@ -11,6 +15,8 @@ function startGame() {
             if (openPandas.length < 12) {
                 $('#gameFailMask').css("display", "block");
                 playtimes == 2 && $('.onemoreGSM').css("display", "none");
+            } else {
+                $('#gameSuccMask').css("display", "block");
             }
             return
         }
@@ -20,7 +26,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            count == 25 && (count = 0); //5秒后默认失败
+            // count == 25 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -36,24 +42,35 @@ function init(){
     FastClick.attach(document.body);
 
     var $loadingMask = $('#loadingMask');
-    var
-        $game = $('#game'),
-        $active = $('.activeAM'),
-        $unactive = $('.unactiveAM') ,
+    var $game = $('#game'),
+        $gameSuccMask = $('#gameSuccMask'),
+        $gameFailMask = $('#gameFailMask'),
+        $activityMask = $('#activityMask'),
+        $container = $('#container'),
+        $lottery = $('#lottery'),
+        $lotteryBg = $('#lotteryBg'),
+        $ltytry = $('.buttonLt'),
+        $tt = $('.tt_contentLt'),
+        $zjmp = $('#zjmp'),
+        $zjjd = $('#zjjd'),
+        $zjtn = $('#zjtn'),
         $descAM = $('.descAM'),
         $boardAM = $('.boardAM');
 
     $loadingMask.css("display", "none");
 
     $('.activity').click(function () {
-        $('#activityMask').css("display", "block");
+        $activityMask.css("display", "block");
     })
 
     $('.closeAM').click(function () {
-        $('#activityMask').css("display", "none");
+        $activityMask.css("display", "none");
     })
 
     $('.headerAM').click(function (e) {
+        var $active = $('.activeAM'),
+            $unactive = $('.unactiveAM');
+        console.log(e.target.className)
         if(e.target.className == 'closeAM') return false;
         if(e.target.className == 'unactiveAM') {
             $unactive.attr("class", "activeAM");
@@ -70,7 +87,8 @@ function init(){
 
     $('.play').click(function () {
         $game.css("display", "block");
-        $('#activityMask').css("display", "none");
+        $container.css("display", "none");
+        $activityMask.css("display", "none");
         startGame();
     })
 
@@ -96,14 +114,45 @@ function init(){
     })
 
     $('.onemoreGSM').click(function () {
-        $('#gameFailMask').css("display", "none");
+        $gameFailMask.css("display", "none");
         playtimes += 1;
+        console.log($('.flipContainerGM'));
+        Array.prototype.slice.call($('.flipContainerGM')).forEach(function ($flipItem) {
+            $flipItem.className = $flipItem.className.replace('activeGM', '');
+        })
         startGame();
     })
 
     $('.rangeGSM').click(function () {
-        $('#activityMask').css("display", "block");
+        $activityMask.css("display", "block");
     })
+    
+    $('.cjGSM').click(function () {
+        $gameSuccMask.css("display", "none");
+        $game.css("display", "none");
+        $lottery.css("display", "block");
+        $lotteryBg.css("display", "block");
+    })
+
+    $ltytry.click(function () {
+        $tt.attr("class", "tt_contentLt tt_activeLt");
+        $ltytry.unbind();
+        setTimeout(function () {
+            $tt.attr("class", "tt_contentLt " + jpTypeMap[jpType]);
+            setTimeout(function () {
+                $lottery.css("display", "none");
+                if (jpType == 1) {
+                    $zjmp.css("display", "block");
+                }
+                else if (jpType == 2) {
+                    $zjtn.css("display", "block");
+                } else {
+                    $zjjd.css("display", "block");
+                }
+            }, 2000)
+        }, 2000)
+    })
+    
 }
 
 

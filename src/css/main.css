@@ -28,7 +28,6 @@ html,body {
     margin-top: -504px;
     z-index: 1;
     -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
     transform-origin: center center;
     overflow: visible;
 
@@ -844,7 +843,33 @@ html,body {
 
 .contentLt {
     height: 529px;
-    background: url("../img/lottery/ttbg.png") no-repeat center;
+    position: relative;
+}
+
+.tt_contentLt {
+    height: 529px;
+    width: 529px;
+    margin: 0 auto;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform-origin: 272px 276px;
+    transform-origin: 272px 276px;
+    background: url("../img/lottery/ttbg.png") no-repeat;
+}
+
+.tt_ct_one {
+    transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+}
+
+.tt_ct_two {
+    transform: rotate(240deg);
+    -webkit-transform: rotate(240deg);
+}
+
+.tt_activeLt {
+    -webkit-animation: tt-rotate  .1s linear infinite;
+    animation: tt-rotate .1s linear infinite;
 }
 
 .footerLt {
@@ -1033,6 +1058,23 @@ html,body {
     animation: rotate-three 1s linear infinite;
     border-top: 3px solid #EFEFFA;
 }
+
+@-webkit-keyframes tt-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes tt-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
 @-webkit-keyframes bg-rotate {
     0% {
         -webkit-transform: rotate(0deg) scale(3);
@@ -1041,6 +1083,16 @@ html,body {
         -webkit-transform: rotate(360deg) scale(3);
     }
 }
+
+@keyframes bg-rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(3);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(3);
+    }
+}
+
 @-webkit-keyframes rotate-one {
     0% {
         -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
