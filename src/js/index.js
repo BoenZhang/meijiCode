@@ -82,6 +82,13 @@ function init(){
     window.onresize = screenResize;
     FastClick.attach(document.body);
 
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        $musicbg.get(0).play();
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        $musicbg.get(0).play();
+    }, false);
+
     var $loadingMask = $('#loadingMask');
     var $game = $('#game'),
         $gameSuccMask = $('#gameSuccMask'),
