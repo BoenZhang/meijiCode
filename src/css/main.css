@@ -13,6 +13,10 @@ html,body {
     background-color: #000;
 }
 
+a {
+    text-decoration:none;
+}
+
 /*首页-------------------------*/
 .contain {
     background: transparent;
@@ -282,7 +286,7 @@ html,body {
     width: 100%;
     border-bottom: 3px solid #ffffff;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .headerAM .closeAM {
@@ -391,7 +395,19 @@ html,body {
 .boardList .two {
     flex-basis: 20%;
     height: 90px;
-    background: url("../img/activityDesc/leaderFour.png") no-repeat center;
+    text-align: center;
+    /*background: url("../img/activityDesc/leaderFour.png") no-repeat center;*/
+    /*background-size: cover;*/
+}
+
+.boardList .two span {
+    height: 60px;
+    width: 60px;
+    margin-top: 18px;
+
+    display: inline-block;
+    /*background: url("../img/activityDesc/leaderFour.png") no-repeat center;*/
+    background-size: cover;
 }
 
 .boardList .three {
@@ -488,6 +504,12 @@ html,body {
     height: 1008px;
     width: 640px;
     background: url("../img/activityDesc/invite.png") no-repeat top center;
+}
+
+.invite .submitmp{
+    height: 1008px;
+    width: 640px;
+    background: url("../img/submitmp.png") no-repeat center 300px;
 }
 
     /* game ------------------------------------------------- game */
@@ -937,6 +959,10 @@ html,body {
     text-align: center;
     font-size: 38px;
     /*background: #fff3ba;*/
+}
+
+.button a {
+    color: #e60012;
 }
 
 .buttonLt {

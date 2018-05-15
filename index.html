@@ -12,12 +12,12 @@
             query = new URLSearchParams(location.search),
             appid = 'wx45e2241b4b48bbf3'
         code = query.get('code')
-        if (!code) {
-            setTimeout(function(){
-                alert('请您授权!')
-            }, 3000)
-            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-        }
+//        if (!code) {
+//            setTimeout(function(){
+//                alert('请您授权!')
+//            }, 3000)
+//            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+//        }
     </script>
 
     <!-- endbuild -->
@@ -96,37 +96,37 @@
             <div class="boardContentAM">
                 <div class="boardList rankone rankT">
                     <div class="one">1</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">Now。</div>
                     <div class="four">9.12</div>
                 </div>
                 <div class="boardList ranktwo rankT">
                     <div class="one">2</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">十月</div>
                     <div class="four">9.68</div>
                 </div>
                 <div class="boardList rankthree rankT">
                     <div class="one">3</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">平常心</div>
                     <div class="four">9.89</div>
                 </div>
-                <div class="boardList">
+                <div class="boardList rankfour">
                     <div class="one">4</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">captain 张</div>
                     <div class="four">10.22</div>
                 </div>
-                <div class="boardList">
+                <div class="boardList rankfive">
                     <div class="one">5</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">猫哩个喵</div>
                     <div class="four">10.26</div>
                 </div>
-                <div class="boardList">
+                <div class="boardList ranksix">
                     <div class="one">6</div>
-                    <div class="two"></div>
+                    <div class="two"><span></span></div>
                     <div class="three">Ray</div>
                     <div class="four">10.49</div>
                 </div>
@@ -143,6 +143,10 @@
 
 <div id="inviteMask" class="invite">
     <div></div>
+</div>
+
+<div id="submitMask" class="invite">
+    <div class="submitmp"></div>
 </div>
 
 <div id="game" class="game">
@@ -380,7 +384,7 @@
 <div id="zjtn" class="zj zjtn">
     <div class="content_zjtn"></div>
     <div class="footerLt">
-        <div class="button button_zjtn">前往领取福利</div>
+        <div class="button button_zjtn"><a href="http://m.tuniu.com/event/geLottery/newShare/name/mzsp?p=34334">前往领取福利</a></div>
         <div class="button button_zjtn sharezj">炫耀一下</div>
     </div>
 </div>
@@ -388,7 +392,7 @@
 <div id="zjjd" class="zj zjjd">
     <div class="content_zjjd"></div>
     <div class="footerLt">
-        <div class="button button_zjtn">前往领取福利</div>
+        <div class="button button_zjtn"><a href="https://sale.jd.com/m/act/hnGFybco8xCPS0z.html?_">前往领取福利</a></div>
         <div class="button button_zjtn sharezj">炫耀一下</div>
     </div>
 </div>
@@ -419,7 +423,7 @@
         </div>
     </div>
     <div class="footerLt">
-        <div class="button button_zjtn">确   定</div>
+        <div class="button button_zjtn submitmp">确   定</div>
         <div class="button button_zjtn sharezj">炫耀一下</div>
     </div>
 </div>
@@ -440,12 +444,13 @@
     document.write('<script src="http://ftest.redview.com.cn:16000/config?url=' + encodeURIComponent(location.href) + '"><\/script>')
 </script>
 <script>
+    var wxopenid;
     fetch('http://fytest.redview.com.cn:16000/openid?code=' + code)
         .then(function(response){
             return response.json()
         })
         .then(function(d){
-            console.log(d['openid'])
+            wxopenid = d['openid'];
             return fetch('http://fytest.redview.com.cn:16000/userinfo?openid=' + d['openid'] + '&access_token=' + d['access_token'])
         })
         .then(function(response){
@@ -460,7 +465,7 @@
     wx.ready(function () {
 
         wx.onMenuShareTimeline({
-            title: '11', // 分享标题
+            title: '明治', // 分享标题
             link: 'http://fytest.redview.com.cn/', // 分享链接
             imgUrl: 'http://fytest.redview.com.cn/a.jpg',
             success: function () {
@@ -472,8 +477,8 @@
         })
 
         wx.onMenuShareAppMessage({
-            title: '11', // 分享标题
-            desc: '22', // 分享描述
+            title: '明治', // 分享标题
+            desc: '明治饼干', // 分享描述
             link: 'http://fytest.redview.com.cn/', // 分享链接
             imgUrl: 'http://fytest.redview.com.cn/a.jpg',
             type: 'link', // 分享类型,music、video或link，不填默认为link

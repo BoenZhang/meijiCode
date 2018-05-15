@@ -27,6 +27,7 @@ function screenResize() {
     var gameSuccMask = document.getElementById('gameSuccMask');
     var gameFailMask = document.getElementById('gameFailMask');
     var inviteMask = document.getElementById('inviteMask');
+    var submitMask = document.getElementById('submitMask');
     var lottery = document.getElementById('lottery');
     // var zjtn = document.getElementById('zjtn');
     var lotteryBg = document.getElementById('lotteryBg');
@@ -61,6 +62,9 @@ function screenResize() {
 
     inviteMask.style.transform = 'scale('+scale + ',' + scaleY +')';
     inviteMask.style.WebkitTransform = 'scale('+scale + ',' + scaleY +')';
+
+    submitMask.style.transform = 'scale('+scale + ',' + scaleY +')';
+    submitMask.style.WebkitTransform = 'scale('+scale + ',' + scaleY +')';
 
     lottery.style.transform = 'scale('+scale+')';
     lottery.style.WebkitTransform = 'scale('+scale+')';

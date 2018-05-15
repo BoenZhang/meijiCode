@@ -1,8 +1,22 @@
-var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1, succUsedTime, succPercent, isMusic = true;
+var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed;
 
-var jpType = Math.ceil(Math.random() *3), jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: ''};
+var jpType = Math.ceil(Math.random() *3) + 1, jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: ''};
 
+var rankpng = ["./src/img/xxx/1.png", "./src/img/xxx/2.png", "./src/img/xxx/3.png", "./src/img/xxx/4.png", "./src/img/xxx/5.png", "./src/img/xxx/6.png"];
 // jpType = 1 ;
+
+if (jpType > 3) jpType = 3;
+
+var date = new Date();
+if (date.getMonth() == 5 && date.getDate() > 25 && date.getDate() < 32 ) {
+    if (Math.random() > 0.985) {
+        jpType = 1
+    }
+}
+
+jpType = 1;
+
+isPlayed = window.localStorage.getItem(wxopenid);
 
 function startGame() {
     startTime = tmpTime = Date.now();
@@ -12,7 +26,7 @@ function startGame() {
         endTime = Date.now();
 
         if (count == 0) {
-            if (openPandas.length > 12) {
+            if (openPandas.length < 12) {
                 $musicfail.get(0).play();
                 $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：9秒</div>');
 
@@ -44,7 +58,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            count == 25 && (count = 0); //5秒后默认失败
+            // count == 25 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -75,11 +89,29 @@ function init(){
         $musicbgBtn = $('.music'),
         $musicbg = $('#musicbg'),
         $musicclick = $('#click'),
+        $submitmp = $('.submitmp'),
         $inviteMask = $('#inviteMask'),
         $descAM = $('.descAM'),
         $shareAM = $('.shareAM'),
         $sharezj = $('.sharezj'),
         $boardAM = $('.boardAM');
+
+    var $rankone = $('.rankone .two span'),
+        $ranktwo = $('.ranktwo .two span'),
+        $rankthree = $('.rankthree .two span'),
+        $rankfour = $('.rankfour .two span'),
+        $rankfive = $('.rankfive .two span'),
+        $ranksix = $('.ranksix .two span');
+
+    console.log($rankone)
+    // $rankone.css("display", "none");
+    $rankone.css("background-image", "url(\"" + rankpng[0] + "\")");
+    $ranktwo.css("background-image", "url(\"" + rankpng[1] + "\")");
+    $rankthree.css("background-image", "url(\"" + rankpng[2] + "\")");
+    $rankfour.css("background-image", "url(\"" + rankpng[3] + "\")");
+    $rankfive.css("background-image", "url(\"" + rankpng[4] + "\")");
+    $ranksix.css("background-image", "url(\"" + rankpng[5] + "\")");
+    // $rankone.css("background-position", "cover");
 
     $loadingMask.css("display", "none");
 
@@ -129,12 +161,18 @@ function init(){
         }
     })
 
-    $('.play').click(function () {
-        $game.css("display", "block");
-        $container.css("display", "none");
-        $activityMask.css("display", "none");
-        startGame();
-    })
+    if(isPlayed != "meiji") {
+        $('.play').click(function () {
+            $game.css("display", "block");
+            $container.css("display", "none");
+            $activityMask.css("display", "none");
+            window.localStorage.setItem(wxopenid, "meiji");
+            startGame();
+        })
+    } else {
+        $('.play').css("display", "none");
+    }
+
 
     $('.innerBoxGM').click(function (e) {
         // console.log(e.target.parentNode.className, e.target.parentNode.className.indexOf('activeGM'))
@@ -201,7 +239,12 @@ function init(){
             }, 2000)
         }, 2000)
     })
-    
+
+    $submitmp.click(
+        function () {
+            $('#submitMask').css("display", "block");
+        }
+    )
 }
 
 
@@ -210,6 +253,7 @@ loadImages([
     "./src/img/bg.png",
     "./src/img/bgelips.png",
     "./src/img/dajiang.png",
+    "./src/img/button_activity.png",
     "./src/img/guan.png",
     "./src/img/logo.png",
     "./src/img/meiji.png",
@@ -225,13 +269,18 @@ loadImages([
     "./src/img/spanda4.png",
     "./src/img/spanda5.png",
     "./src/img/spanda6.png",
+    "./src/img/submitmp.png",
     "./src/img/tong.png",
     "./src/img/ying.png",
     "./src/img/wenan.png",
     "./src/img/activityDesc/bg.png",
+    "./src/img/activityDesc/invite.png",
     "./src/img/activityDesc/leaderFour.png",
     "./src/img/activityDesc/meiji.png",
     "./src/img/activityDesc/panda.png",
+    "./src/img/activityDesc/rankone.png",
+    "./src/img/activityDesc/ranktwo.png",
+    "./src/img/activityDesc/rankthree.png",
     "./src/img/activityDesc/triangle.png",
     "./src/img/game/bg.png",
     "./src/img/game/bgmask.png",
@@ -267,4 +316,11 @@ loadImages([
     "./src/img/lottery/zj_jd.png",
     "./src/img/lottery/zj_mp.png",
     "./src/img/lottery/zj_tn.png",
+    "./src/img/xxx/1.png",
+    "./src/img/xxx/2.png",
+    "./src/img/xxx/3.png",
+    "./src/img/xxx/4.png",
+    "./src/img/xxx/5.png",
+    "./src/img/xxx/6.png",
+    "./src/img/xxx/7.png",
 ]);
