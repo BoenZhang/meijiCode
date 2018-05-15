@@ -121,8 +121,11 @@ a {
     position: relative;
     height: 307px;
     z-index: 6;
-    -webkit-animation: panda-scale 3s ease-in-out;
-    animation: panda-scale 3s ease-in-out;
+}
+
+.ctaTop img {
+    -webkit-animation: wenzi-scale 2s ease-in-out;
+    animation: wenzi-scale 2s ease-in-out;
 }
 
 .wenan {
@@ -164,8 +167,11 @@ a {
     height: 336px;
     background: url("../img/panda6.png") no-repeat 56%;
     z-index: 5;
-    -webkit-animation: panda-scale 3s ease-in-out;
-    animation: panda-scale 3s ease-in-out;
+}
+
+.ctaPanda img {
+    -webkit-animation: panda-scale 2s ease-in-out;
+    animation: panda-scale 2s ease-in-out;
 }
 
 .ctaPanda img {
@@ -230,6 +236,8 @@ a {
     margin-top: 10px;
     background: url("../img/meiji.png") no-repeat center;
     z-index: 6;
+    -webkit-animation: wenzi-scale 2s ease-in-out;
+    animation: wenzi-scale 2s ease-in-out;
 }
 
 .meijiBox .spanda1 {
@@ -640,6 +648,7 @@ a {
     /*-webkit-transform-style: preserve-3d;*/
     /*transform-style: preserve-3d;*/
     /*margin: 2px;*/
+    /*flex: 1 0 24.6%;*/
     flex-basis: 24.6%;
     position: relative;
 }
@@ -669,15 +678,15 @@ a {
     z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
 }
 
-.flipContainerGM:hover .frontGM {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-.flipContainerGM:hover .backGM {
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
-}
+/*.flipContainerGM:hover .frontGM {*/
+    /*-webkit-transform: rotateY(180deg);*/
+    /*transform: rotateY(180deg);*/
+/*}*/
+/*.flipContainerGM:hover .backGM {*/
+    /*-webkit-transform: rotateY(0deg);*/
+    /*transform: rotateY(0deg);*/
+    /*z-index: 3; !* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front *!*/
+/*}*/
 
 .frontGM, .backGM {
     -webkit-backface-visibility: hidden;
@@ -695,6 +704,8 @@ a {
     background: url("../img/game/bingan.png") no-repeat center;
 }
 .frontGM {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
     z-index: 2;
 }
 .backGM {
@@ -705,6 +716,10 @@ a {
 .backGM img {
     vertical-align: middle;
     line-height: 0;
+}
+
+.binganGM .backGM img {
+    display: none;
 }
 
 
@@ -1137,7 +1152,7 @@ a {
 
 @-webkit-keyframes panda-scale {
     0% {
-        -webkit-transform: scale(0.8);
+        -webkit-transform: scale(0.7);
     }
     80% {
         -webkit-transform: scale(1.1);
@@ -1148,7 +1163,7 @@ a {
 }
 @keyframes panda-scale {
     0% {
-        -webkit-transform: scale(0.8);
+        -webkit-transform: scale(0.7);
     }
     80% {
         -webkit-transform: scale(1.1);
@@ -1157,6 +1172,24 @@ a {
         -webkit-transform: scale(1);
     }
 }
+
+@-webkit-keyframes wenzi-scale {
+    0% {
+        -webkit-transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+}
+}
+@keyframes wenzi-scale {
+    0% {
+        -webkit-transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
 @-webkit-keyframes tt-rotate {
     0% {
         -webkit-transform: rotate(0deg);

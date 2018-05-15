@@ -1,9 +1,16 @@
-var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed;
+var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, openedPandaDom1, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed;
+
+var openPandaClassArr = [], openPandaStyleArr = [];
 
 var jpType = Math.ceil(Math.random() *3) + 1, jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: ''};
 
 var rankpng = ["./src/img/xxx/1.png", "./src/img/xxx/2.png", "./src/img/xxx/3.png", "./src/img/xxx/4.png", "./src/img/xxx/5.png", "./src/img/xxx/6.png"];
 // jpType = 1 ;
+
+var $musicbgBtn = $('.music'),
+    $musicbg = $('#musicbg'),
+    $musicclick = $('#click'),
+    $submitmp = $('.submitmp');
 
 if (jpType > 3) jpType = 3;
 
@@ -14,7 +21,7 @@ if (date.getMonth() == 5 && date.getDate() > 25 && date.getDate() < 32 ) {
     }
 }
 
-jpType = 1;
+// jpType = 1;
 
 isPlayed = window.localStorage.getItem(wxopenid);
 
@@ -26,7 +33,8 @@ function startGame() {
         endTime = Date.now();
 
         if (count == 0) {
-            if (openPandas.length < 12) {
+            $musicbg.get(0).pause();
+            if (openPandas.length > 12) {
                 $musicfail.get(0).play();
                 $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：9秒</div>');
 
@@ -37,7 +45,7 @@ function startGame() {
                 succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
                 succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2);
 
-                console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
+                // console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
                 $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：9.12秒</div>');
                 $('#gameSuccMask').css("display", "block");
             }
@@ -45,6 +53,7 @@ function startGame() {
         }
 
         if (openPandas.length == 12) {
+            $musicbg.get(0).pause();
             $musicsucc.get(0).play();
             succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
             succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 + Math.random()).toFixed(2);
@@ -58,7 +67,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            // count == 25 && (count = 0); //5秒后默认失败
+            count == 25 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -86,10 +95,6 @@ function init(){
         $zjmp = $('#zjmp'),
         $zjjd = $('#zjjd'),
         $zjtn = $('#zjtn'),
-        $musicbgBtn = $('.music'),
-        $musicbg = $('#musicbg'),
-        $musicclick = $('#click'),
-        $submitmp = $('.submitmp'),
         $inviteMask = $('#inviteMask'),
         $descAM = $('.descAM'),
         $shareAM = $('.shareAM'),
@@ -103,7 +108,7 @@ function init(){
         $rankfive = $('.rankfive .two span'),
         $ranksix = $('.ranksix .two span');
 
-    console.log($rankone)
+    // console.log($rankone)
     // $rankone.css("display", "none");
     $rankone.css("background-image", "url(\"" + rankpng[0] + "\")");
     $ranktwo.css("background-image", "url(\"" + rankpng[1] + "\")");
@@ -161,7 +166,7 @@ function init(){
         }
     })
 
-    if(isPlayed != "meiji") {
+    if(isPlayed == "meiji") {
         $('.play').click(function () {
             $game.css("display", "block");
             $container.css("display", "none");
@@ -175,38 +180,74 @@ function init(){
 
 
     $('.innerBoxGM').click(function (e) {
-        // console.log(e.target.parentNode.className, e.target.parentNode.className.indexOf('activeGM'))
-        if (e.target.parentNode.className.indexOf('activeGM') > -1 || e.target.parentNode.parentNode.className.indexOf('activeGM') > -1) return false;
+        // console.log('-------1', e.target.parentNode.className, e.target.parentNode.className.indexOf('activeGM'))
+        // console.log('-------2', openedPandaId, e.target.dataset.panda)
+        if (e.target.parentNode.className == 'gameBoxGM' || e.target.parentNode.className == 'innerBoxGM' || e.target.parentNode.className.indexOf('activeGM') > -1 || e.target.parentNode.parentNode.className.indexOf('activeGM') > -1) return false;
 
-        // console.log(openedPandaId, e.target.dataset.panda)
         $musicclick.get(0).play();
-        e.target.parentNode.className = "flipContainerGM activeGM";
+        e.target.parentNode.className = e.target.parentNode.className + " activeGM";
         if (openedPandaId == '') {
             openedPandaId = e.target.dataset.panda;
             openedPandaDom = e.target.parentNode;
         } else {
+            // openedPandaDom1 = e.target.parentNode;
             if (openedPandaId == e.target.dataset.panda) {
                 openPandas.push(openedPandaId);
+                (function (opd, opid) {
+                    setTimeout(function () {
+                        // console.log('--sdasds---', parseInt(opid.replace('p', '')) % 6)
+                        opd.className = opd.className + " binganGM";
+                        e.target.parentNode.className = e.target.parentNode.className + " binganGM";
+                        opd.childNodes[3].style.backgroundImage = "url(\"./src/img/bingan/bg" + (parseInt(opid.replace('p', '')) % 6 + 1) + ".png\")";
+                        e.target.parentNode.childNodes[3].style.backgroundImage = "url(\"./src/img/bingan/bg" + (parseInt(opid.replace('p', '')) % 6 + 1) + ".png\")";
+                        openPandaClassArr.push(opd);
+                        openPandaClassArr.push(e.target.parentNode);
+                        openPandaStyleArr.push(opd.childNodes[3]);
+                        openPandaStyleArr.push(e.target.parentNode.childNodes[3]);
+                    }, 600)
+                })(openedPandaDom, openedPandaId);
                 openedPandaId = '';
             } else {
                 openedPandaId = '';
                 (function (opd) {
                     setTimeout(function () {
+                        // console.log('st', opd, e.target.parentNode);
                         opd.className = opd.className.replace('activeGM', '');
                         e.target.parentNode.className = e.target.parentNode.className.replace('activeGM', '');
                     }, 600)
-                })(openedPandaDom)
+                })(openedPandaDom);
             }
         }
+        // console.log('-------3', openedPandaDom, openedPandaId, e.target.dataset.panda)
     })
 
     $('.onemoreGSM').click(function () {
         $gameFailMask.css("display", "none");
+        $musicbg.get(0).play();
         playtimes += 1;
         // console.log($('.flipContainerGM'));
         Array.prototype.slice.call($('.flipContainerGM')).forEach(function ($flipItem) {
             $flipItem.className = $flipItem.className.replace('activeGM', '');
         })
+
+        for(var i = 0; i < openPandaClassArr.length; i++) {
+            (
+                function (index) {
+                    openPandaClassArr[index].className = openPandaClassArr[index].className.replace("binganGM", "");
+                }
+            )(i)
+        }
+
+        for(var j = 0; j < openPandaClassArr.length; j++) {
+            (
+                function (index) {
+                    openPandaStyleArr[index].style.backgroundImage = "";
+                }
+            )(j)
+        }
+        openPandaClassArr = [];
+        openPandaStyleArr = [];
+
         startGame();
     })
 
@@ -238,6 +279,14 @@ function init(){
                 }
             }, 2000)
         }, 2000)
+    })
+
+    $inviteMask.click(function () {
+        $inviteMask.css("display", "none");
+    })
+
+    $('#submitMask').click(function () {
+        $('#submitMask').css("display", "none");
     })
 
     $submitmp.click(
@@ -323,4 +372,10 @@ loadImages([
     "./src/img/xxx/5.png",
     "./src/img/xxx/6.png",
     "./src/img/xxx/7.png",
+    "./src/img/bingan/bg1.png",
+    "./src/img/bingan/bg2.png",
+    "./src/img/bingan/bg3.png",
+    "./src/img/bingan/bg4.png",
+    "./src/img/bingan/bg5.png",
+    "./src/img/bingan/bg6.png",
 ]);
