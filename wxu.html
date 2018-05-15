@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <script>
+        var
+            query = new URLSearchParams(location.search),
+            appid = 'wx45e2241b4b48bbf3'
+        code = query.get('code')
+        if (!code) {
+            setTimeout(function(){
+                alert('请您授权!')
+            }, 3000)
+            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script>
+    document.write('<script src="http://ftest.redview.com.cn:16000/config?url=' + encodeURIComponent(location.href) + '"><\/script>')
+</script>
+<script>
+    fetch('http://fytest.redview.com.cn:16000/openid?code=' + code)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(d){
+            return fetch('http://fytest.redview.com.cn:16000/userinfo?openid=' + d['openid'] + '&access_token=' + d['access_token'])
+        })
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(userInfo){
+            document.querySelector('#root')
+                .innerHTML = '昵称: ' + userInfo['nickname'] + 'url' + userInfo['headimgurl'] +  '<br/>'
+                + '头像: <img src="' + userInfo['headimgurl'] + '"/>'
+        })
+        .catch(function(a) { alert(a) })
+
+    // 配置分享
+    wx.ready(function () {
+
+        wx.onMenuShareTimeline({
+            title: '11', // 分享标题
+            link: 'http://fytest.redview.com.cn/', // 分享链接
+            imgUrl: 'http://fytest.redview.com.cn/a.jpg',
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        })
+
+        wx.onMenuShareAppMessage({
+            title: '11', // 分享标题
+            desc: '22', // 分享描述
+            link: 'http://fytest.redview.com.cn/', // 分享链接
+            imgUrl: 'http://fytest.redview.com.cn/a.jpg',
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空,
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

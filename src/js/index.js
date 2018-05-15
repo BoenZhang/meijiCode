@@ -1,4 +1,4 @@
-var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1;
+var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, playtimes = 1, succUsedTime, succPercent, isMusic = true;
 
 var jpType = Math.ceil(Math.random() *3), jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: ''};
 
@@ -6,19 +6,37 @@ var jpType = Math.ceil(Math.random() *3), jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct
 
 function startGame() {
     startTime = tmpTime = Date.now();
-    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), count;
+    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), $smhcGSM = $('.smhcGSM'), $fmhcGSM = $('.fmhcGSM'), $musicfail = $('#fail'), $musicsucc = $('#succ'),count;
 
     function run() {
         endTime = Date.now();
 
         if (count == 0) {
-            if (openPandas.length < 12) {
+            if (openPandas.length > 12) {
+                $musicfail.get(0).play();
+                $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：9秒</div>');
+
                 $('#gameFailMask').css("display", "block");
                 playtimes == 2 && $('.onemoreGSM').css("display", "none");
             } else {
+                $musicsucc.get(0).play();
+                succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
+                succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2);
+
+                console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
+                $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：9.12秒</div>');
                 $('#gameSuccMask').css("display", "block");
             }
             return
+        }
+
+        if (openPandas.length == 12) {
+            $musicsucc.get(0).play();
+            succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
+            succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 + Math.random()).toFixed(2);
+
+            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：9.12秒</div>');
+            $('#gameSuccMask').css("display", "block");
         }
 
         if(endTime - tmpTime > 1000) {
@@ -26,7 +44,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            // count == 25 && (count = 0); //5秒后默认失败
+            count == 25 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -54,7 +72,13 @@ function init(){
         $zjmp = $('#zjmp'),
         $zjjd = $('#zjjd'),
         $zjtn = $('#zjtn'),
+        $musicbgBtn = $('.music'),
+        $musicbg = $('#musicbg'),
+        $musicclick = $('#click'),
+        $inviteMask = $('#inviteMask'),
         $descAM = $('.descAM'),
+        $shareAM = $('.shareAM'),
+        $sharezj = $('.sharezj'),
         $boardAM = $('.boardAM');
 
     $loadingMask.css("display", "none");
@@ -70,7 +94,7 @@ function init(){
     $('.headerAM').click(function (e) {
         var $active = $('.activeAM'),
             $unactive = $('.unactiveAM');
-        console.log(e.target.className)
+        // console.log(e.target.className)
         if(e.target.className == 'closeAM') return false;
         if(e.target.className == 'unactiveAM') {
             $unactive.attr("class", "activeAM");
@@ -85,6 +109,26 @@ function init(){
         }
     })
 
+    $shareAM.click(function () {
+        $inviteMask.css("display", "block");
+    })
+
+    $sharezj.click(function () {
+        $inviteMask.css("display", "block");
+    })
+
+    $musicbgBtn.click(function () {
+        if (isMusic) {
+            $musicbg.get(0).pause();
+            isMusic = false;
+            $musicbgBtn.css("background-color", "#b1aaaa");
+        } else {
+            $musicbg.get(0).play();
+            isMusic = true;
+            $musicbgBtn.css("background-color", "#fdc300");
+        }
+    })
+
     $('.play').click(function () {
         $game.css("display", "block");
         $container.css("display", "none");
@@ -93,8 +137,11 @@ function init(){
     })
 
     $('.innerBoxGM').click(function (e) {
-        console.log(e.target.parentNode.className, e.target.parentNode.className.indexOf('activeGM'))
+        // console.log(e.target.parentNode.className, e.target.parentNode.className.indexOf('activeGM'))
         if (e.target.parentNode.className.indexOf('activeGM') > -1 || e.target.parentNode.parentNode.className.indexOf('activeGM') > -1) return false;
+
+        // console.log(openedPandaId, e.target.dataset.panda)
+        $musicclick.get(0).play();
         e.target.parentNode.className = "flipContainerGM activeGM";
         if (openedPandaId == '') {
             openedPandaId = e.target.dataset.panda;
@@ -105,10 +152,12 @@ function init(){
                 openedPandaId = '';
             } else {
                 openedPandaId = '';
-                setTimeout(function () {
-                    openedPandaDom.className = openedPandaDom.className.replace('activeGM', '');
-                    e.target.parentNode.className = e.target.parentNode.className.replace('activeGM', '');
-                }, 600);
+                (function (opd) {
+                    setTimeout(function () {
+                        opd.className = opd.className.replace('activeGM', '');
+                        e.target.parentNode.className = e.target.parentNode.className.replace('activeGM', '');
+                    }, 600)
+                })(openedPandaDom)
             }
         }
     })
@@ -116,7 +165,7 @@ function init(){
     $('.onemoreGSM').click(function () {
         $gameFailMask.css("display", "none");
         playtimes += 1;
-        console.log($('.flipContainerGM'));
+        // console.log($('.flipContainerGM'));
         Array.prototype.slice.call($('.flipContainerGM')).forEach(function ($flipItem) {
             $flipItem.className = $flipItem.className.replace('activeGM', '');
         })

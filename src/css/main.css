@@ -44,8 +44,10 @@ html,body {
     -webkit-transform-origin: 50% 55.2%;
     transform: scale(3);
     -webkit-transform: scale(3);
-    /*-webkit-animation: bg-rotate 8s linear infinite;*/
-    /*animation: bg-rotate 8s linear infinite;*/
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: bg-rotate 8s linear infinite;
+    animation: bg-rotate 8s linear infinite;
 }
 
 .screenA {
@@ -70,15 +72,16 @@ html,body {
 
 .activity {
     display: inline-block;
-    height: 42px;
-    line-height: 42px;
+    height: 41px;
+    line-height: 41px;
     width: 160px;
     border-radius: 21px;
     cursor: pointer;
     text-align: center;
     font-size: 26px;
     color: #e60012;
-    background-color: #fff7d0;
+    background: url("../img/button_activity.png") no-repeat center;
+    /*background-color: #fff7d0;*/
 }
 
 .musicA {
@@ -114,6 +117,8 @@ html,body {
     position: relative;
     height: 307px;
     z-index: 6;
+    -webkit-animation: panda-scale 3s ease-in-out;
+    animation: panda-scale 3s ease-in-out;
 }
 
 .wenan {
@@ -155,6 +160,8 @@ html,body {
     height: 336px;
     background: url("../img/panda6.png") no-repeat 56%;
     z-index: 5;
+    -webkit-animation: panda-scale 3s ease-in-out;
+    animation: panda-scale 3s ease-in-out;
 }
 
 .ctaPanda img {
@@ -234,12 +241,12 @@ html,body {
     margin-top: 20px;
     display: inline-block;
     width: 297px;
-    height: 62px;
-    line-height: 62px;
+    height: 61px;
+    line-height: 61px;
     color: #e60012;
     font-size: 48px;
     border-radius: 31px;
-    background-color: #fff1ae;
+    background: url("../img/lottery/buttonlot.png") no-repeat center;
 }
 
 /*活动说明------------------------------------*/
@@ -352,12 +359,33 @@ html,body {
 .boardList {
     height: 90px;
     display: flex;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 .boardList .one {
     flex-basis: 20%;
     height: 90px;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
     background: url("../img/activityDesc/leaderFour.png") no-repeat center;
+}
+
+.rankT {
+    color: #eb6100;
+}
+
+.boardList.rankone .one {
+    background: url("../img/activityDesc/rankone.png") no-repeat center;
+}
+
+.boardList.ranktwo .one {
+    background: url("../img/activityDesc/ranktwo.png") no-repeat center;
+}
+
+.boardList.rankthree .one {
+    background: url("../img/activityDesc/rankthree.png") no-repeat center;
 }
 
 .boardList .two {
@@ -418,15 +446,16 @@ html,body {
 
 .shareAM {
     margin: 0 auto;
-    height: 62px;
+    height: 61px;
     width: 297px;
     border-radius: 31px;
     margin-top: 40px;
-    line-height: 62px;
+    line-height: 61px;
     color: #e60012;
     text-align: center;
     font-size: 48px;
-    background: #fff3ba;
+    /*background: #fff3ba;*/
+    background: url("../img/lottery/buttonlot.png") no-repeat center;
 }
 
 .bgAM {
@@ -440,7 +469,28 @@ html,body {
     -webkit-transform: scale(5);
 }
 
-/* game ------------------------------------------------- game */
+.invite {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -320px;
+    margin-top: -504px;
+    height: 1008px;
+    width: 640px;
+    background: #000;
+    opacity: .6;
+    z-index: 22;
+
+    display: none;
+}
+
+.invite div{
+    height: 1008px;
+    width: 640px;
+    background: url("../img/activityDesc/invite.png") no-repeat top center;
+}
+
+    /* game ------------------------------------------------- game */
 
 .game {
     background-size: auto 100% ! important;
@@ -1059,6 +1109,28 @@ html,body {
     border-top: 3px solid #EFEFFA;
 }
 
+@-webkit-keyframes panda-scale {
+    0% {
+        -webkit-transform: scale(0.8);
+    }
+    80% {
+        -webkit-transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes panda-scale {
+    0% {
+        -webkit-transform: scale(0.8);
+    }
+    80% {
+        -webkit-transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
 @-webkit-keyframes tt-rotate {
     0% {
         -webkit-transform: rotate(0deg);
