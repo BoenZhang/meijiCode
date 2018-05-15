@@ -34,7 +34,7 @@ function startGame() {
 
         if (count == 0) {
             $musicbg.get(0).pause();
-            if (openPandas.length > 12) {
+            if (openPandas.length < 12) {
                 $musicfail.get(0).play();
                 $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：9秒</div>');
 
@@ -67,7 +67,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            count == 25 && (count = 0); //5秒后默认失败
+            // count == 25 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -166,7 +166,7 @@ function init(){
         }
     })
 
-    if(isPlayed == "meiji") {
+    if(isPlayed == "meiji" || true) {
         $('.play').click(function () {
             $game.css("display", "block");
             $container.css("display", "none");
