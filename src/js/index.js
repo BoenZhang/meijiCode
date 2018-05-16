@@ -27,7 +27,7 @@ isPlayed = window.localStorage.getItem(wxopenid);
 
 function startGame() {
     startTime = tmpTime = Date.now();
-    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), $smhcGSM = $('.smhcGSM'), $fmhcGSM = $('.fmhcGSM'), $musicfail = $('#fail'), $musicsucc = $('#succ'),count;
+    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), $smhcGSM = $('.smhcGSM'), $fmhcGSM = $('.fmhcGSM'), $musicfail = $('#fail'), $musicsucc = $('#succ'),count, timeLine = 90, failedPercent = (40 + Math.random() * 20).toFixed(2);
 
     function run() {
         endTime = Date.now();
@@ -36,14 +36,14 @@ function startGame() {
             $musicbg.get(0).pause();
             if (openPandas.length < 12) {
                 $musicfail.get(0).play();
-                $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：6.12秒</div>');
+                $fmhcGSM.html('<div>' + failedPercent + '%的玩家已完成挑战</div><div>第一名成绩为：6.12秒</div>');
 
                 $('#gameFailMask').css("display", "block");
-                playtimes == 2 && $('.onemoreGSM').css("display", "none");
+                // playtimes == 2 && $('.onemoreGSM').css("display", "none");
             } else {
                 $musicsucc.get(0).play();
-                succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
-                succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2);
+                succUsedTime = Math.abs((timeLine + (startTime - endTime) / 1000).toFixed(2));
+                succPercent = (timeLine - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 14) * 100 + Math.random()).toFixed(2);
 
                 // console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
                 $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
@@ -55,19 +55,19 @@ function startGame() {
         if (openPandas.length == 12) {
             $musicbg.get(0).pause();
             $musicsucc.get(0).play();
-            succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
-            succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 + Math.random()).toFixed(2);
+            succUsedTime = Math.abs((timeLine + (startTime - endTime) / 1000).toFixed(2));
+            succPercent = (timeLine - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 14) + Math.random()).toFixed(2);
 
             $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
             $('#gameSuccMask').css("display", "block");
         }
 
         if(endTime - tmpTime > 1000) {
-            count = Math.abs((30 + (startTime - endTime) / 1000).toFixed());
+            count = Math.abs((timeLine + (startTime - endTime) / 1000).toFixed());
             $numGM.html( count + 'S');
             tmpTime = endTime;
-            $percentGM.css("width", (100 - 100 / 30 * (30 - count)) + "%");
-            // count == 25 && (count = 0); //5秒后默认失败
+            $percentGM.css("width", (100 - 100 / timeLine * (timeLine - count)) + "%");
+            // count == 85 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -237,7 +237,7 @@ function init(){
 
     $('.onemoreGSM').click(function () {
         $gameFailMask.css("display", "none");
-        $musicbg.get(0).play();
+        isMusic && $musicbg.get(0).play();
         playtimes += 1;
         // console.log($('.flipContainerGM'));
         Array.prototype.slice.call($('.flipContainerGM')).forEach(function ($flipItem) {

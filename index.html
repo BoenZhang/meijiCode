@@ -12,12 +12,12 @@
             query = new URLSearchParams(location.search),
             appid = 'wx45e2241b4b48bbf3'
             code = query.get('code')
-//            if (!code) {
-//                setTimeout(function(){
-//                    alert('请您授权!')
-//                }, 3000)
-//                location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-//            }
+            if (!code) {
+            setTimeout(function(){
+                alert('请您授权!')
+            }, 3000)
+            location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + location.href + '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+        }
     </script>
 
     <!-- endbuild -->
@@ -88,7 +88,7 @@
                     <span>活动时间</span><br> 2018年5月17日-2018年8月31日
                 </p>
                 <br>
-                <p><span>活动说明</span><br>翻开任意两对相同的图片即可完成消除，反之则会自动翻转到原位；在30秒内消除所有图片，即可获得抽奖机会。<br>活动期间玩家挑战成功就可获得一次抽奖机会，100%中奖。</p>
+                <p><span>活动说明</span><br>翻开任意两对相同的图片即可完成消除，反之则会自动翻转到原位；在90秒内消除所有图片，即可获得抽奖机会。<br>活动期间玩家挑战成功就可获得一次抽奖机会，100%中奖。</p>
             </div>
         </div>
 
@@ -156,7 +156,7 @@
         </div>
         <div class="contentGM">
             <div class="timerGM">
-                <div class="numGM">30S</div>
+                <div class="numGM">90S</div>
                 <div class="processGM">
                     <img src="./src/img/game/progress1.png" alt="" class="pIconOne">
                     <img src="./src/img/game/progress2.png" alt="" class="pIconTwo">
