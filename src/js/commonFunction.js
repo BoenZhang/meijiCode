@@ -13,9 +13,6 @@ function loadImages(imgList){
         image.src = imgList[i];
     }
 
-    $(".ctaTop").attr("class", "ctaTop activeCT");
-    $(".ctaPanda").attr("class", "ctaPanda activeCT");
-    $(".meijiBox").attr("class", "meijiBox activeCT");
 }
 
 function loadImagesNormal(imgList){

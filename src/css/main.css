@@ -123,9 +123,14 @@ a {
     z-index: 6;
 }
 
+.ctaTop img {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
 .ctaTop.activeCT img {
-    -webkit-animation: wenzi-scale .7s ease-in-out;
-    animation: wenzi-scale .7s ease-in-out;
+    -webkit-animation: wenzi-scale .7s ease-in-out .016s forwards;
+    animation: wenzi-scale .7s ease-in-out .016s forwards;
 }
 
 .wenan {
@@ -169,11 +174,13 @@ a {
     z-index: 5;
     /*-webkit-animation: panda-scale .5s ease-in-out;*/
     /*animation: panda-scale .5s ease-in-out;*/
+    -webkit-transform: scale(0);
+    transform: scale(0);
 }
 
 .ctaPanda.activeCT {
-    -webkit-animation: panda-scale .5s ease-in-out;
-    animation: panda-scale .5s ease-in-out;
+    -webkit-animation: panda-scale .5s ease-in-out .016s forwards;
+    animation: panda-scale .5s ease-in-out .016s forwards;
 }
 
 .ctaPanda img {
@@ -232,14 +239,19 @@ a {
     margin-top: 137px;
 }
 
-.meijiBox .activeCT {
+.meijiBox {
     position: relative;
     height: 197px;
     margin-top: 10px;
     background: url("../img/meiji.png") no-repeat center;
     z-index: 6;
-    -webkit-animation: wenzi-scale .7s ease-in-out;
-    animation: wenzi-scale .7s ease-in-out;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+.meijiBox .activeCT {
+    -webkit-animation: wenzi-scale .7s ease-in-out .016s forwards;
+    animation: wenzi-scale .7s ease-in-out .016s forwards;
 }
 
 .meijiBox .spanda1 {
