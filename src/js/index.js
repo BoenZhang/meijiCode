@@ -1,6 +1,6 @@
 var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, openedPandaDom1, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed;
 
-var openPandaClassArr = [], openPandaStyleArr = [];
+var openPandaClassArr = [], openPandaStyleArr = [], failedPercent = (40 + Math.random() * 20).toFixed(2);
 
 var jpType = Math.ceil(Math.random() *3) + 1, jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: 'tt_ct_three'};
 
@@ -15,11 +15,11 @@ var $musicbgBtn = $('.music'),
 if (jpType > 3) jpType = 3;
 
 var date = new Date();
-if (date.getMonth() == 5 && date.getDate() > 25 && date.getDate() < 32 ) {
-    if (Math.random() > 0.99) {
-        jpType = 1
-    }
-}
+// if (date.getMonth() == 5 && date.getDate() > 25 && date.getDate() < 32 ) {
+//     if (Math.random() > 0.99) {
+//         jpType = 1
+//     }
+// }
 
 // jpType = 1;
 
@@ -27,14 +27,14 @@ isPlayed = window.localStorage.getItem(wxopenid);
 
 function startGame() {
     startTime = tmpTime = Date.now();
-    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), $smhcGSM = $('.smhcGSM'), $fmhcGSM = $('.fmhcGSM'), $musicfail = $('#fail'), $musicsucc = $('#succ'),count, timeLine = 90, failedPercent = (40 + Math.random() * 20).toFixed(2);
+    var $numGM = $('.numGM'), $percentGM = $('.percentGM'), $smhcGSM = $('.smhcGSM'), $fmhcGSM = $('.fmhcGSM'), $musicfail = $('#fail'), $musicsucc = $('#succ'),count, timeLine = 90;
 
     function run() {
         endTime = Date.now();
 
         if (count == 0) {
             $musicbg.get(0).pause();
-            if (openPandas.length > 12) {
+            if (openPandas.length < 12) {
                 $musicfail.get(0).play();
                 $fmhcGSM.html('<div>' + failedPercent + '%的玩家已完成挑战</div><div>第一名成绩为：6.12秒</div>');
 
@@ -42,8 +42,8 @@ function startGame() {
                 // playtimes == 2 && $('.onemoreGSM').css("display", "none");
             } else {
                 $musicsucc.get(0).play();
-                succUsedTime = Math.abs(((startTime - endTime) / 1000).toFixed(2));
-                succPercent = (timeLine - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
+                succUsedTime = Math.abs(Math.abs(((startTime - endTime) / 1000) - 1).toFixed(2));
+                succPercent = succUsedTime < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
 
                 // console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
                 $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
@@ -55,9 +55,9 @@ function startGame() {
         if (openPandas.length == 12) {
             $musicbg.get(0).pause();
             $musicsucc.get(0).play();
-            succUsedTime = Math.abs(((startTime - endTime) / 1000).toFixed(2));
-            console.log(succUsedTime, timeLine - succUsedTime)
-            succPercent = (timeLine - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
+            succUsedTime = Math.abs((Math.abs((startTime - endTime) / 1000) - 1).toFixed(2));
+            // console.log(succUsedTime, timeLine - succUsedTime)
+            succPercent = succUsedTime < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
 
             $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
             $('#gameSuccMask').css("display", "block");
@@ -70,7 +70,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / timeLine * (timeLine - count)) + "%");
-            // count == 74 && (openPandas.length = 12); //5秒后默认失败
+            // count == 89 && (count = 0); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -185,6 +185,14 @@ function init(){
 
     if(isPlayed == "meiji" || true) {
         $('.play').click(function () {
+            // console.log($('.headerAM').children()[0])
+            $('.headerAM').children()[0].className = "unactiveAM acdescAM";
+            $('.headerAM').children()[0].style.display = "none";
+            $descAM.attr("class", "descAM");
+            $boardAM.attr("class", "boardAM descActive");
+            $('.headerAM').children()[1].className = "activeAM acrankAM";
+            document.getElementById("musicbg").volume = 0.1;
+            document.getElementById("click").volume = 1;
             $game.css("display", "block");
             $container.css("display", "none");
             $activityMask.css("display", "none");
@@ -240,6 +248,7 @@ function init(){
 
     $('.onemoreGSM').click(function () {
         $gameFailMask.css("display", "none");
+        openPandas = [];
         isMusic && $musicbg.get(0).play();
         playtimes += 1;
         // console.log($('.flipContainerGM'));
