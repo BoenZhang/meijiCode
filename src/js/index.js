@@ -128,9 +128,11 @@ function init(){
     $loadingMask.css("display", "none");
 
 
-    $(".ctaTop").attr("class", "ctaTop activeCT");
-    $(".ctaPanda").attr("class", "ctaPanda activeCT");
-    $(".meijiBox").attr("class", "meijiBox activeCT");
+    setTimeout(function () {
+        $(".ctaTop").attr("class", "ctaTop activeCT");
+        $(".ctaPanda").attr("class", "ctaPanda activeCT");
+        $(".meijiBox").attr("class", "meijiBox activeCT");
+    });
 
     $('.activity').click(function () {
         $activityMask.css("display", "block");
