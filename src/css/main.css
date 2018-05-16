@@ -965,13 +965,24 @@ a {
 }
 
 .tt_ct_one {
-    transform: rotate(120deg);
-    -webkit-transform: rotate(120deg);
+    /*transform: rotate(120deg);*/
+    /*-webkit-transform: rotate(120deg);*/
+    -webkit-animation: tt-rotate-one  2s linear forwards;
+    animation: tt-rotate-one 2s linear forwards;
 }
 
 .tt_ct_two {
-    transform: rotate(240deg);
-    -webkit-transform: rotate(240deg);
+    /*transform: rotate(240deg);*/
+    /*-webkit-transform: rotate(240deg);*/
+    -webkit-animation: tt-rotate-two  2s linear forwards;
+    animation: tt-rotate-two 2s linear forwards;
+}
+
+.tt_ct_three {
+    /*transform: rotate(240deg);*/
+    /*-webkit-transform: rotate(240deg);*/
+    -webkit-animation: tt-rotate-three  2s linear forwards;
+    animation: tt-rotate-three 2s linear forwards;
 }
 
 .tt_activeLt {
@@ -1220,6 +1231,93 @@ a {
         -webkit-transform: rotate(360deg);
     }
 }
+
+@-webkit-keyframes tt-rotate-one {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1200deg);
+    }
+}
+@keyframes tt-rotate-one {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1200deg);
+    }
+}
+
+@-webkit-keyframes tt-rotate-two {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1320deg);
+    }
+}
+@keyframes tt-rotate-two {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1320deg);
+    }
+}
+@-webkit-keyframes tt-rotate-three {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1440deg);
+    }
+}
+@keyframes tt-rotate-three {
+    0% {
+        -webkit-transform: rotate(1080deg);
+    }
+    30% {
+        -webkit-transform: rotate(0deg);
+    }
+    80% {
+        -webkit-transform: rotate(-1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(-1440deg);
+    }
+}
+
 @-webkit-keyframes bg-rotate {
     0% {
         -webkit-transform: rotate(0deg) scale(3);
