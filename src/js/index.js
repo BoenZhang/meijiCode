@@ -36,7 +36,7 @@ function startGame() {
             $musicbg.get(0).pause();
             if (openPandas.length < 12) {
                 $musicfail.get(0).play();
-                $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：9秒</div>');
+                $fmhcGSM.html('<div>' + (40 + Math.random() * 20).toFixed(2) + '%的玩家已完成挑战</div><div>第一名成绩为：6.12秒</div>');
 
                 $('#gameFailMask').css("display", "block");
                 playtimes == 2 && $('.onemoreGSM').css("display", "none");
@@ -46,7 +46,7 @@ function startGame() {
                 succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2);
 
                 // console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
-                $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：9.12秒</div>');
+                $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
                 $('#gameSuccMask').css("display", "block");
             }
             return
@@ -58,7 +58,7 @@ function startGame() {
             succUsedTime = Math.abs((30 + (startTime - endTime) / 1000).toFixed(2));
             succPercent = (30 - succUsedTime) < 15 ? (95 + Math.random() * 5).toFixed(2) : ((30 - succUsedTime) / 15 + Math.random()).toFixed(2);
 
-            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：9.12秒</div>');
+            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
             $('#gameSuccMask').css("display", "block");
         }
 
@@ -301,6 +301,51 @@ function init(){
             $('#submitMask').css("display", "block");
         }
     )
+
+
+
+    loadImagesNormal([
+        "./src/img/game/p1.png",
+        "./src/img/game/p2.png",
+        "./src/img/game/p3.png",
+        "./src/img/game/p4.png",
+        "./src/img/game/p5.png",
+        "./src/img/game/p6.png",
+        "./src/img/game/p7.png",
+        "./src/img/game/p8.png",
+        "./src/img/game/p9.png",
+        "./src/img/game/p10.png",
+        "./src/img/game/p11.png",
+        "./src/img/game/p12.png",
+
+        "./src/img/bingan/bg1.png",
+        "./src/img/bingan/bg2.png",
+        "./src/img/bingan/bg3.png",
+        "./src/img/bingan/bg4.png",
+        "./src/img/bingan/bg5.png",
+        "./src/img/bingan/bg6.png",
+
+        "./src/img/activityDesc/invite.png",
+        "./src/img/activityDesc/panda.png",
+        "./src/img/activityDesc/rankone.png",
+        "./src/img/activityDesc/ranktwo.png",
+        "./src/img/activityDesc/rankthree.png",
+        "./src/img/xxx/1.png",
+        "./src/img/xxx/2.png",
+        "./src/img/xxx/3.png",
+        "./src/img/xxx/4.png",
+        "./src/img/xxx/5.png",
+        "./src/img/xxx/6.png",
+        "./src/img/xxx/7.png",
+
+        "./src/img/game/failp.png",
+        "./src/img/game/failStar.png",
+        "./src/img/game/gamebutton.png",
+
+        "./src/img/game/succbg.png",
+        "./src/img/game/succp.png",
+        "./src/img/game/succStar.png",
+    ]);
 }
 
 
@@ -330,37 +375,37 @@ loadImages([
     "./src/img/ying.png",
     "./src/img/wenan.png",
     "./src/img/activityDesc/bg.png",
-    "./src/img/activityDesc/invite.png",
+    // "./src/img/activityDesc/invite.png",
     "./src/img/activityDesc/leaderFour.png",
     "./src/img/activityDesc/meiji.png",
-    "./src/img/activityDesc/panda.png",
-    "./src/img/activityDesc/rankone.png",
-    "./src/img/activityDesc/ranktwo.png",
-    "./src/img/activityDesc/rankthree.png",
+    // "./src/img/activityDesc/panda.png",
+    // "./src/img/activityDesc/rankone.png",
+    // "./src/img/activityDesc/ranktwo.png",
+    // "./src/img/activityDesc/rankthree.png",
     "./src/img/activityDesc/triangle.png",
     "./src/img/game/bg.png",
     "./src/img/game/bgmask.png",
     "./src/img/game/bingan.png",
-    "./src/img/game/failp.png",
-    "./src/img/game/failStar.png",
-    "./src/img/game/gamebutton.png",
-    "./src/img/game/p1.png",
-    "./src/img/game/p2.png",
-    "./src/img/game/p3.png",
-    "./src/img/game/p4.png",
-    "./src/img/game/p5.png",
-    "./src/img/game/p6.png",
-    "./src/img/game/p7.png",
-    "./src/img/game/p8.png",
-    "./src/img/game/p9.png",
-    "./src/img/game/p10.png",
-    "./src/img/game/p11.png",
-    "./src/img/game/p12.png",
+    // "./src/img/game/failp.png",
+    // "./src/img/game/failStar.png",
+    // "./src/img/game/gamebutton.png",
+    // "./src/img/game/p1.png",
+    // "./src/img/game/p2.png",
+    // "./src/img/game/p3.png",
+    // "./src/img/game/p4.png",
+    // "./src/img/game/p5.png",
+    // "./src/img/game/p6.png",
+    // "./src/img/game/p7.png",
+    // "./src/img/game/p8.png",
+    // "./src/img/game/p9.png",
+    // "./src/img/game/p10.png",
+    // "./src/img/game/p11.png",
+    // "./src/img/game/p12.png",
     "./src/img/game/progress1.png",
     "./src/img/game/progress2.png",
-    "./src/img/game/succbg.png",
-    "./src/img/game/succp.png",
-    "./src/img/game/succStar.png",
+    // "./src/img/game/succbg.png",
+    // "./src/img/game/succp.png",
+    // "./src/img/game/succStar.png",
     "./src/img/lottery/bg.png",
     "./src/img/lottery/arrow.png",
     "./src/img/lottery/buttonlot.png",
@@ -372,17 +417,17 @@ loadImages([
     "./src/img/lottery/zj_jd.png",
     "./src/img/lottery/zj_mp.png",
     "./src/img/lottery/zj_tn.png",
-    "./src/img/xxx/1.png",
-    "./src/img/xxx/2.png",
-    "./src/img/xxx/3.png",
-    "./src/img/xxx/4.png",
-    "./src/img/xxx/5.png",
-    "./src/img/xxx/6.png",
-    "./src/img/xxx/7.png",
-    "./src/img/bingan/bg1.png",
-    "./src/img/bingan/bg2.png",
-    "./src/img/bingan/bg3.png",
-    "./src/img/bingan/bg4.png",
-    "./src/img/bingan/bg5.png",
-    "./src/img/bingan/bg6.png",
+    // "./src/img/xxx/1.png",
+    // "./src/img/xxx/2.png",
+    // "./src/img/xxx/3.png",
+    // "./src/img/xxx/4.png",
+    // "./src/img/xxx/5.png",
+    // "./src/img/xxx/6.png",
+    // "./src/img/xxx/7.png",
+    // "./src/img/bingan/bg1.png",
+    // "./src/img/bingan/bg2.png",
+    // "./src/img/bingan/bg3.png",
+    // "./src/img/bingan/bg4.png",
+    // "./src/img/bingan/bg5.png",
+    // "./src/img/bingan/bg6.png",
 ]);

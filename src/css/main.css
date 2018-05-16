@@ -123,9 +123,9 @@ a {
     z-index: 6;
 }
 
-.ctaTop img {
-    -webkit-animation: wenzi-scale 2s ease-in-out;
-    animation: wenzi-scale 2s ease-in-out;
+.ctaTop.activeCT img {
+    -webkit-animation: wenzi-scale .7s ease-in-out;
+    animation: wenzi-scale .7s ease-in-out;
 }
 
 .wenan {
@@ -167,11 +167,13 @@ a {
     height: 336px;
     background: url("../img/panda6.png") no-repeat 56%;
     z-index: 5;
+    /*-webkit-animation: panda-scale .5s ease-in-out;*/
+    /*animation: panda-scale .5s ease-in-out;*/
 }
 
-.ctaPanda img {
-    -webkit-animation: panda-scale 2s ease-in-out;
-    animation: panda-scale 2s ease-in-out;
+.ctaPanda.activeCT {
+    -webkit-animation: panda-scale .5s ease-in-out;
+    animation: panda-scale .5s ease-in-out;
 }
 
 .ctaPanda img {
@@ -230,14 +232,14 @@ a {
     margin-top: 137px;
 }
 
-.meijiBox {
+.meijiBox .activeCT {
     position: relative;
     height: 197px;
     margin-top: 10px;
     background: url("../img/meiji.png") no-repeat center;
     z-index: 6;
-    -webkit-animation: wenzi-scale 2s ease-in-out;
-    animation: wenzi-scale 2s ease-in-out;
+    -webkit-animation: wenzi-scale .7s ease-in-out;
+    animation: wenzi-scale .7s ease-in-out;
 }
 
 .meijiBox .spanda1 {
@@ -1152,10 +1154,7 @@ a {
 
 @-webkit-keyframes panda-scale {
     0% {
-        -webkit-transform: scale(0.7);
-    }
-    80% {
-        -webkit-transform: scale(1.1);
+        -webkit-transform: scale(0);
     }
     100% {
         -webkit-transform: scale(1);
@@ -1163,10 +1162,7 @@ a {
 }
 @keyframes panda-scale {
     0% {
-        -webkit-transform: scale(0.7);
-    }
-    80% {
-        -webkit-transform: scale(1.1);
+        -webkit-transform: scale(0);
     }
     100% {
         -webkit-transform: scale(1);

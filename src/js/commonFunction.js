@@ -12,6 +12,20 @@ function loadImages(imgList){
         }
         image.src = imgList[i];
     }
+
+    $(".ctaTop").attr("class", "ctaTop activeCT");
+    $(".ctaPanda").attr("class", "ctaPanda activeCT");
+    $(".meijiBox").attr("class", "meijiBox activeCT");
+}
+
+function loadImagesNormal(imgList){
+    var process = 0;
+    for(var i=0;i<imgList.length;i++){
+        var image = new Image();
+
+        image.src = imgList[i];
+    }
+
 }
 
 function screenResize() {
