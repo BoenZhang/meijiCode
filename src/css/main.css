@@ -301,7 +301,7 @@ a {
     overflow: visible;
     position: absolute;
 
-    background: url("../img/activityDesc/bg.png");
+    /*background: url("../img/activityDesc/bg.png");*/
 
     display: none;
     /*background-color:#000;*/
@@ -526,7 +526,7 @@ a {
     height: 1008px;
     width: 640px;
     background: #000000;
-    z-index: -1;
+    z-index: -2;
     opacity: .6;
     transform: scale(5);
     -webkit-transform: scale(5);

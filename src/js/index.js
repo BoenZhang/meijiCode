@@ -1,4 +1,4 @@
-var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, openedPandaDom1, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed;
+var screenScale, startTime, endTime, tmpTime, openPandas = [], openedPandaId = '', openedPandaDom, openedPandaDom1, playtimes = 1, succUsedTime, succPercent, isMusic = true, isPlayed, isClickPlay = false;
 
 var openPandaClassArr = [], openPandaStyleArr = [], failedPercent = (40 + Math.random() * 20).toFixed(2);
 
@@ -162,6 +162,12 @@ function init(){
 
     $('.closeAM').click(function () {
         $activityMask.css("display", "none");
+
+        if (isClickPlay) {
+            $('.rangeGSM').css("display", "block");
+            $('.cjGSM').css("display", "block");
+            $('.onemoreGSM').css("display", "none");
+        }
     })
 
     $('.headerAM').click(function (e) {
@@ -204,6 +210,7 @@ function init(){
 
     if(isPlayed == "meiji" || true) {
         $('.play').click(function () {
+            isClickPlay = true;
             // console.log($('.headerAM').children()[0])
             $('.headerAM').children()[0].className = "unactiveAM acdescAM";
             $('.headerAM').children()[0].style.display = "none";
@@ -298,6 +305,10 @@ function init(){
 
     $('.rangeGSM').click(function () {
         $activityMask.css("display", "block");
+
+        $('.rangeGSM').css("display", "none");
+        $('.cjGSM').css("display", "none");
+        $('.onemoreGSM').css("display", "none");
     })
     
     $('.cjGSM').click(function () {
