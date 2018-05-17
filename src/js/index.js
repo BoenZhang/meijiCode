@@ -85,18 +85,13 @@ function init(){
     window.onresize = screenResize;
     FastClick.attach(document.body);
 
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        $musicbg.get(0).play();
-    }, false);
-    document.addEventListener('YixinJSBridgeReady', function() {
-        $musicbg.get(0).play();
-    }, false);
-
     var $loadingMask = $('#loadingMask');
     var $game = $('#game'),
         $gameSuccMask = $('#gameSuccMask'),
         $gameFailMask = $('#gameFailMask'),
         $activityMask = $('#activityMask'),
+        $musicfail = $('#fail'),
+        $musicsucc = $('#succ'),
         $container = $('#container'),
         $lottery = $('#lottery'),
         $lotteryBg = $('#lotteryBg'),
@@ -117,6 +112,30 @@ function init(){
         $rankfour = $('.rankfour .two span'),
         $rankfive = $('.rankfive .two span'),
         $ranksix = $('.ranksix .two span');
+
+
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        $musicbg.get(0).play();
+        $musicsucc.get(0).play();
+        $musicfail.get(0).play();
+        $musicclick.get(0).play();
+        setTimeout(function () {
+            $musicsucc.get(0).pause();
+            $musicfail.get(0).pause();
+            $musicclick.get(0).pause();
+        }, 10)
+    }, false);
+    document.addEventListener('YixinJSBridgeReady', function() {
+        $musicbg.get(0).play();
+        $musicsucc.get(0).play();
+        $musicfail.get(0).play();
+        $musicclick.get(0).play();
+        setTimeout(function () {
+            $musicsucc.get(0).pause();
+            $musicfail.get(0).pause();
+            $musicclick.get(0).pause();
+        }, 10)
+    }, false);
 
     // console.log($rankone)
     // $rankone.css("display", "none");
