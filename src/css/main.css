@@ -502,6 +502,25 @@ a {
     background: url("../img/lottery/buttonlot.png") no-repeat center;
 }
 
+.bglAM {
+    position: absolute;
+    height: 640px;
+    width: 640px;
+    z-index: -2;
+    margin-top: -1008px;
+    overflow: hidden;
+}
+
+.bglAM div {
+    height: 640px;
+    width: 640px;
+    background: url("../img/game/succbg.png") no-repeat center;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation: bgl-rotate 8s linear infinite;
+    animation: bgl-rotate 8s linear infinite;
+}
+
 .bgAM {
     position: absolute;
     height: 1008px;
@@ -745,7 +764,7 @@ a {
 
 /*成功modal-------------------------------*/
 #gameSuccMask {
-    /*background: transparent;*/
+    background: transparent;
     /*background-size: auto 100% ! important;*/
     /*background-position: center;*/
 
@@ -763,7 +782,7 @@ a {
     overflow: visible;
     position: absolute;
 
-    background: url("../img/game/succbg.png") no-repeat;
+    /*background: url("../img/game/succbg.png") no-repeat;*/
 
     display: none;
     /*background-color:#000;*/
@@ -1333,6 +1352,24 @@ a {
     }
     100% {
         -webkit-transform: rotate(360deg) scale(3);
+    }
+}
+
+@-webkit-keyframes bgl-rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1.5);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1.5);
+    }
+}
+
+@keyframes bgl-rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1.5);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1.5);
     }
 }
 
