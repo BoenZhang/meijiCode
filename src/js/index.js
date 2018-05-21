@@ -102,7 +102,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / timeLine * (timeLine - count)) + "%");
-            count == 85 && (openPandas.length = 12); //5秒后默认失败
+            // count == 85 && (openPandas.length = 12); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
