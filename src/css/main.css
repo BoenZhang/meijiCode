@@ -443,6 +443,7 @@ a {
     text-align: center;
     height: 90px;
     line-height: 90px;
+    overflow: hidden;
 }
 
 .boardList .four {

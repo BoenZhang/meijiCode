@@ -18,6 +18,8 @@ var $musicbgBtn = $('.music'),
 
 if (jpType > 3) jpType = 3;
 
+// console.log('---jbtype', jpType);
+
 var date = new Date();
 // if (date.getMonth() == 5 && date.getDate() > 25 && date.getDate() < 32 ) {
 //     if (Math.random() > 0.99) {
@@ -102,7 +104,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / timeLine * (timeLine - count)) + "%");
-            // count == 85 && (openPandas.length = 12); //5秒后默认失败
+            // count == 88 && (openPandas.length = 12); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
