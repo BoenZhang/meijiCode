@@ -462,7 +462,6 @@
         .then(function(userInfo){
             nickname = userInfo['nickname'];
             headimgurl = userInfo['headimgurl'];
-            alert(userInfo['nickname'], userInfo['headimgurl']);
             console.log('wx', userInfo['nickname'], userInfo['headimgurl'])
         })
         .catch(function(a) { alert(a) })
