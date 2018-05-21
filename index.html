@@ -447,7 +447,7 @@
     document.write('<script src="http://ftest.redview.com.cn:16000/config?url=' + encodeURIComponent(location.href) + '"><\/script>')
 </script>
 <script>
-    var wxopenid;
+    var wxopenid, nickname, headimgurl;
     fetch('http://fytest.redview.com.cn:16000/openid?code=' + code)
         .then(function(response){
             return response.json()
@@ -460,7 +460,10 @@
             return response.json()
         })
         .then(function(userInfo){
-            console.log(userInfo['nickname'], userInfo['headimgurl'])
+            nickname = userInfo['nickname'];
+            headimgurl = userInfo['headimgurl'];
+            alert(userInfo['nickname'], userInfo['headimgurl']);
+            console.log('wx', userInfo['nickname'], userInfo['headimgurl'])
         })
         .catch(function(a) { alert(a) })
 

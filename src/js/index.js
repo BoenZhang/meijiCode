@@ -4,8 +4,12 @@ var openPandaClassArr = [], openPandaStyleArr = [], failedPercent = (40 + Math.r
 
 var jpType = Math.ceil(Math.random() *3) + 1, jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: 'tt_ct_three'};
 
-var rankpng = ["./src/img/xxx/1.png", "./src/img/xxx/2.png", "./src/img/xxx/3.png", "./src/img/xxx/4.png", "./src/img/xxx/5.png", "./src/img/xxx/6.png"];
+var rankTypeMap = {1 : ".rankone", 2: ".ranktwo", 3: ".rankthree", 4 : ".rankfour", 5 : ".rankfive", 6 : ".ranksix"};
 // jpType = 1 ;
+
+// var serverUrl = "http://10.200.51.37:3900";
+
+var serverUrl = "http://139.196.207.229:3900";
 
 var $musicbgBtn = $('.music'),
     $musicbg = $('#musicbg'),
@@ -46,8 +50,23 @@ function startGame() {
                 succPercent = succUsedTime < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
 
                 // console.log(((30 - succUsedTime) / 15 * 100 + Math.random()).toFixed(2))
-                $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
-                $('#gameSuccMask').css("display", "block");
+                // $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
+                // $('#gameSuccMask').css("display", "block");
+
+                fetch(serverUrl + '/config?score=' + succUsedTime + "&img=" + headimgurl + "&username=" + nickname)
+                    .then(function(response){
+                        return response.json()
+                    })
+                    .then(function(d){
+                        if (d.isfirst == '2') {
+                            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国100%的玩家</div><div>第一名成绩为：'+ succUsedTime +'秒</div>');
+                            $('#gameSuccMask').css("display", "block");
+                        } else  {
+                            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：'+ d.isfirst +'秒</div>');
+                            $('#gameSuccMask').css("display", "block");
+                        }
+                    })
+                    .catch(function(a) { alert(a) });
             }
             return
         }
@@ -59,8 +78,21 @@ function startGame() {
             // console.log(succUsedTime, timeLine - succUsedTime)
             succPercent = succUsedTime < 15 ? (95 + Math.random() * 5).toFixed(2) : ((timeLine - succUsedTime) / (timeLine - 10) * 100 + Math.random()).toFixed(2);
 
-            $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：6.12秒</div>');
-            $('#gameSuccMask').css("display", "block");
+            fetch(serverUrl + '/config?score=' + succUsedTime + "&img=" + headimgurl + "&username=" + nickname)
+                .then(function(response){
+                    return response.json()
+                })
+                .then(function(d){
+                    console.log('if', d)
+                    if (d.isfirst == '2') {
+                        $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国100%的玩家</div><div>第一名成绩为：'+ succUsedTime +'秒</div>');
+                        $('#gameSuccMask').css("display", "block");
+                    } else  {
+                        $smhcGSM.html('<div>你的成绩为：' + succUsedTime + '秒</div><div>成功击败全国' + succPercent + '%的玩家</div><div>第一名成绩为：'+ d.isfirst +'秒</div>');
+                        $('#gameSuccMask').css("display", "block");
+                    }
+                })
+                .catch(function(a) { alert(a) });
 
             return
         }
@@ -70,7 +102,7 @@ function startGame() {
             $numGM.html( count + 'S');
             tmpTime = endTime;
             $percentGM.css("width", (100 - 100 / timeLine * (timeLine - count)) + "%");
-            // count == 89 && (openPandas.length = 12); //5秒后默认失败
+            count == 85 && (openPandas.length = 12); //5秒后默认失败
         }
 
         requestAnimationFrame(run);
@@ -78,6 +110,38 @@ function startGame() {
 
     run();
 
+}
+
+function setRank(rankArr) {
+
+    // var $rankone = $('.rankone .two span'),
+    //     $ranktwo = $('.ranktwo .two span'),
+    //     $rankthree = $('.rankthree .two span'),
+    //     $rankfour = $('.rankfour .two span'),
+    //     $rankfive = $('.rankfive .two span'),
+    //     $ranksix = $('.ranksix .two span');
+
+
+    // console.log($rankone)
+    // $rankone.css("display", "none");
+
+
+    for( var i = 1; i < 7 ; i ++) {
+        if (rankArr[i].length == 3) {
+            $(rankTypeMap[i]).css("display", "flex");
+            $(rankTypeMap[i] + " .two span").css("background-image", "url(\"" + rankArr[i][1] + "\")");
+            $(rankTypeMap[i] + " .three").html(rankArr[i][2]);
+            $(rankTypeMap[i] + " .four").html(rankArr[i][0]);
+        } else {
+            $(rankTypeMap[i]).css("display", "none");
+        }
+    }
+    // $rankone.css("background-image", "url(\"" + rankArr['1'][1] + "\")");
+    // $ranktwo.css("background-image", "url(\"" + rankArr['2'][1] + "\")");
+    // $rankthree.css("background-image", "url(\"" + rankArr['3'][1] + "\")");
+    // $rankfour.css("background-image", "url(\"" + rankArr['4'][1] + "\")");
+    // $rankfive.css("background-image", "url(\"" + rankArr['5'][1] + "\")");
+    // $ranksix.css("background-image", "url(\"" + rankArr['6'][1] + "\")");
 }
 
 function init(){
@@ -106,13 +170,6 @@ function init(){
         $sharezj = $('.sharezj'),
         $boardAM = $('.boardAM');
 
-    var $rankone = $('.rankone .two span'),
-        $ranktwo = $('.ranktwo .two span'),
-        $rankthree = $('.rankthree .two span'),
-        $rankfour = $('.rankfour .two span'),
-        $rankfive = $('.rankfive .two span'),
-        $ranksix = $('.ranksix .two span');
-
 
     document.addEventListener("WeixinJSBridgeReady", function () {
         $musicbg.get(0).play();
@@ -137,14 +194,6 @@ function init(){
         }, 10)
     }, false);
 
-    // console.log($rankone)
-    // $rankone.css("display", "none");
-    $rankone.css("background-image", "url(\"" + rankpng[0] + "\")");
-    $ranktwo.css("background-image", "url(\"" + rankpng[1] + "\")");
-    $rankthree.css("background-image", "url(\"" + rankpng[2] + "\")");
-    $rankfour.css("background-image", "url(\"" + rankpng[3] + "\")");
-    $rankfive.css("background-image", "url(\"" + rankpng[4] + "\")");
-    $ranksix.css("background-image", "url(\"" + rankpng[5] + "\")");
     // $rankone.css("background-position", "cover");
 
     $loadingMask.css("display", "none");
@@ -158,6 +207,15 @@ function init(){
 
     $('.activity').click(function () {
         $activityMask.css("display", "block");
+
+        fetch(serverUrl + '/getrank')
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(d){
+                setRank(d);
+            })
+            .catch(function(a) { alert(a) })
     })
 
     $('.closeAM').click(function () {
@@ -304,6 +362,15 @@ function init(){
     })
 
     $('.rangeGSM').click(function () {
+        fetch(serverUrl + '/getrank')
+            .then(function(response){
+                return response.json()
+            })
+            .then(function(d){
+                setRank(d);
+            })
+            .catch(function(a) { alert(a) })
+
         $activityMask.css("display", "block");
 
         $('.rangeGSM').css("display", "none");
@@ -379,13 +446,13 @@ function init(){
         "./src/img/activityDesc/rankone.png",
         "./src/img/activityDesc/ranktwo.png",
         "./src/img/activityDesc/rankthree.png",
-        "./src/img/xxx/1.png",
-        "./src/img/xxx/2.png",
-        "./src/img/xxx/3.png",
-        "./src/img/xxx/4.png",
-        "./src/img/xxx/5.png",
-        "./src/img/xxx/6.png",
-        "./src/img/xxx/7.png",
+        // "./src/img/xxx/1.png",
+        // "./src/img/xxx/2.png",
+        // "./src/img/xxx/3.png",
+        // "./src/img/xxx/4.png",
+        // "./src/img/xxx/5.png",
+        // "./src/img/xxx/6.png",
+        // "./src/img/xxx/7.png",
 
         "./src/img/game/failp.png",
         "./src/img/game/failStar.png",
