@@ -69,8 +69,10 @@ a {
 }
 
 .logoA {
-    height: 76px;
-    width: 285px;
+    height: 64px;
+    width: 373px;
+    /*height: 76px;*/
+    /*width: 285px;*/
     background: url("../img/logo.png");
 }
 
