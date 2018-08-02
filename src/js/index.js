@@ -5,7 +5,7 @@ var openPandaClassArr = [], openPandaStyleArr = [], failedPercent = (40 + Math.r
 var jpType = Math.ceil(Math.random() *3) + 1, jpTypeMap = {1: 'tt_ct_one', 2: 'tt_ct_two', 3: 'tt_ct_three'};
 
 var rankTypeMap = {1 : ".rankone", 2: ".ranktwo", 3: ".rankthree", 4 : ".rankfour", 5 : ".rankfive", 6 : ".ranksix"};
-// jpType = 1 ;
+jpType = 2 ;
 
 // var serverUrl = "http://10.200.51.37:3900";
 
@@ -16,7 +16,7 @@ var $musicbgBtn = $('.music'),
     $musicclick = $('#click'),
     $submitmp = $('.submitmp');
 
-if (jpType > 3) jpType = 3;
+// if (jpType > 3) jpType = 3;
 
 // console.log('---jbtype', jpType);
 
